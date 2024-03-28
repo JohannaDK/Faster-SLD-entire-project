@@ -59,7 +59,7 @@ def plotting(ROOT_FOLDER):
     fig.savefig('%s/curve_train_test.png' % ROOT_FOLDER, format='png', dpi=120)
 
 
-
+# I think this is the actual train  function, dont know what train_patches is for
 def train(opt):
 
     if not os.path.exists(opt.output_folder):
@@ -75,6 +75,7 @@ def train(opt):
 
     assert len(opt.landmark_indices) == 0 or len(opt.landmark_indices) == 2, "landmark indices must be empty or length 2"
 
+    # TODO: change train_dataset to own dataloader, maybe make own file like indoor6.py
     train_dataset = Indoor6(landmark_idx=np.arange(opt.landmark_indices[0],
                                                    opt.landmark_indices[1]) if len(opt.landmark_indices) == 2 else [None],
                             scene_id=opt.scene_id,
@@ -84,7 +85,7 @@ def train(opt):
                             landmark_config=opt.landmark_config,
                             visibility_config=opt.visibility_config,
                             skip_image_index=1)
-
+    # TODO: either each batch contains only instances of one scene or implement minibatch with multiple scenes (more complicated)
     train_dataloader = DataLoader(dataset=train_dataset, num_workers=4, batch_size=opt.training_batch_size, shuffle=True,
                                   pin_memory=True)
     
@@ -94,9 +95,11 @@ def train(opt):
 
     num_landmarks = train_dataset.landmark.shape[1]
 
+    # TODO: need specify our backbone model, probably only backbone without head here
     if opt.model == 'efficientnet':
         cnn = EfficientNetSLD(num_landmarks=num_landmarks, output_downsample=opt.output_downsample).to(device=device)
 
+    # TODO: test out hyperparameters
     optimizer = torch.optim.AdamW(cnn.parameters(), lr=1e-3, betas=(0.9, 0.999), eps=1e-4, weight_decay=0.01)
     scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=20, gamma=0.5)
 
@@ -126,6 +129,7 @@ def train(opt):
             # Clear gradient
             optimizer.zero_grad()
 
+            # TODO: change forward pass such that we take a different head for each training example
             # CNN forward pass
             pred = cnn(images)['1']
 

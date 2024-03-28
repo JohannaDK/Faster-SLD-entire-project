@@ -9,6 +9,7 @@ if __name__ == '__main__':
     home_dir = os.path.expanduser("~")
 
     # Specify the paths to the dataset and the output folders.
+    # TODO: specify which scenes to train backbone on
     dataset_dir = os.path.join(home_dir, "data/backbone")
     output_dir = os.path.join(home_dir, "data/outputs")
 
@@ -17,15 +18,19 @@ if __name__ == '__main__':
     version_no = 1
     
     # Specify the scene name
+    # TODO: if we use indoor6, then scene name must correspond to one of the indoor6 scene names
     scene_name = 'backbone_scenes'
 
     # Specify the landmark file
+    # TODO: need file with landmarks corresponding to the scenes we choose
     landmark_config = 'landmarks/landmarks-1000v10'
 
     # Specify the visibility file
+    # TODO: same as landmark_config
     visibility_config = 'landmarks/visibility-1000v10_depth_normal'
 
     # Specify the batch size for the minibatches used for training.
+    # TODO: in general hyperparameters
     training_batch_size = 8
     
     # Specify the downsample factor for the output heatmap.
