@@ -9,8 +9,8 @@ if __name__ == '__main__':
     home_dir = os.path.expanduser("~")
 
     # Specify the paths to the dataset and the output folders.
-    # TODO: specify which scenes to train backbone on
-    dataset_dir = os.path.join(home_dir, "data/backbone")
+    # TODO: specify which scenes to train backbone on, for now this is alright as we only train on indoor 6 anyways
+    dataset_dir = os.path.join(home_dir, "data/indoor6")
     output_dir = os.path.join(home_dir, "data/outputs")
 
     # Specify a version number which can be incremented when training multiple variants on 
@@ -19,10 +19,11 @@ if __name__ == '__main__':
     
     # Specify the scene name
     # TODO: if we use indoor6, then scene name must correspond to one of the indoor6 scene names
+    # for now, can leave empty, only needed for indoor6 dataloader
     scene_name = 'backbone_scenes'
 
     # Specify the landmark file
-    # TODO: need file with landmarks corresponding to the scenes we choose
+    # TODO: need file with landmarks corresponding to the scenes we choose (generate using landmark_selection)
     landmark_config = 'landmarks/landmarks-1000v10'
 
     # Specify the visibility file

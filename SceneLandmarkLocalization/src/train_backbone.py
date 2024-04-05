@@ -75,25 +75,33 @@ def train(opt):
 
     assert len(opt.landmark_indices) == 0 or len(opt.landmark_indices) == 2, "landmark indices must be empty or length 2"
 
-    # TODO: change train_dataset to own dataloader, maybe make own file like indoor6.py
-    train_dataset = Indoor6(landmark_idx=np.arange(opt.landmark_indices[0],
-                                                   opt.landmark_indices[1]) if len(opt.landmark_indices) == 2 else [None],
-                            scene_id=opt.scene_id,
-                            mode='train',
-                            root_folder=opt.dataset_folder,
-                            input_image_downsample=2,
-                            landmark_config=opt.landmark_config,
-                            visibility_config=opt.visibility_config,
-                            skip_image_index=1)
+    # TODO: change train_dataset to own dataloader, maybe make own file like indoor6.py, for now we can just use indoor6 dataloader as we only use those scenes
+    # done for now
+    backbone_scenes = ["scene1","scene2a","scene3"]
+    backbone_train_dataset = []
+    for scene in backbone_scenes:
+        backbone_train_dataset.append(Indoor6(landmark_idx=np.arange(opt.landmark_indices[0],
+                                                    opt.landmark_indices[1]) if len(opt.landmark_indices) == 2 else [None],
+                                scene_id=scene,
+                                mode='train',
+                                root_folder=opt.dataset_folder,
+                                input_image_downsample=2,
+                                landmark_config=opt.landmark_config,
+                                visibility_config=opt.visibility_config,
+                                skip_image_index=1))
     # TODO: either each batch contains only instances of one scene or implement minibatch with multiple scenes (more complicated)
-    train_dataloader = DataLoader(dataset=train_dataset, num_workers=4, batch_size=opt.training_batch_size, shuffle=True,
-                                  pin_memory=True)
-    
+    backbone_train_dataloader = []
+    for dataset in backbone_train_dataset:
+        backbone_train_dataloader.append(DataLoader(dataset=dataset, num_workers=4, batch_size=opt.training_batch_size, shuffle=True,
+                                    pin_memory=True))
+        
     ## Save the trained landmark configurations
-    np.savetxt(os.path.join(opt.output_folder, 'landmarks.txt'), train_dataset.landmark)
-    np.savetxt(os.path.join(opt.output_folder, 'visibility.txt'), train_dataset.visibility, fmt='%d')
+    for i in range(len(backbone_scenes)):
+        scene = backbone_scenes[i]
+        np.savetxt(os.path.join(opt.output_folder, 'landmarks_{}.txt'.format(scene)), backbone_train_dataset[i].landmark)
+        np.savetxt(os.path.join(opt.output_folder, 'visibility_{}.txt'.format(scene)), backbone_train_dataset[i].visibility, fmt='%d')
 
-    num_landmarks = train_dataset.landmark.shape[1]
+    num_landmarks = backbone_train_dataset[0].landmark.shape[1]
 
     # TODO: need specify our backbone model, probably only backbone without head here
     if opt.model == 'efficientnet':
