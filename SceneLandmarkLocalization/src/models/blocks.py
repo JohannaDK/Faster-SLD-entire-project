@@ -1,11 +1,14 @@
 import torch
 import torch.nn as nn
 from .conv2d_layers import Conv2dSameExport
+import os
 
 
 def _make_encoder(use_pretrained, exportable=True, output_downsample=4):
 
-    # pretrained = _make_pretrained_efficientnet_lite0(use_pretrained, exportable=exportable)
+    if not os.path.exists('SceneLandmarkLocalization/src/models/pretrained_efficientnetlite0.net'):
+        pretrained = _make_pretrained_efficientnet_lite0(use_pretrained, exportable=exportable)
+    
     pretrained = torch.load('pretrained_efficientnetlite0.net')
 
     if output_downsample <= 16:

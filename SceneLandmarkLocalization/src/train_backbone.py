@@ -11,6 +11,7 @@ from tqdm import tqdm
 from inference import *
 from dataloader.indoor6 import *
 from models.efficientlitesld import EfficientNetSLD
+from models.backbone_model import *
 from utils.heatmap import generate_heat_maps_gpu
 
 # unchanged from train.py, just plots losses and (I think) validation errors
@@ -78,41 +79,54 @@ def train(opt):
     # TODO: change train_dataset to own dataloader, maybe make own file like indoor6.py, for now we can just use indoor6 dataloader as we only use those scenes
     # done for now
     backbone_scenes = ["scene1","scene2a","scene3"]
-    backbone_train_dataset = []
+    backbone_train_dataset = {}
+    
     for scene in backbone_scenes:
-        backbone_train_dataset.append(Indoor6(landmark_idx=np.arange(opt.landmark_indices[0],
+        lm_config = "{}_{}".format(opt.landmark_config,scene)
+        vis_config = "{}_{}".format(opt.visibility_config,scene)
+        backbone_train_dataset[scene] = (Indoor6(landmark_idx=np.arange(opt.landmark_indices[0],
                                                     opt.landmark_indices[1]) if len(opt.landmark_indices) == 2 else [None],
                                 scene_id=scene,
                                 mode='train',
                                 root_folder=opt.dataset_folder,
                                 input_image_downsample=2,
-                                landmark_config=opt.landmark_config,
-                                visibility_config=opt.visibility_config,
+                                landmark_config=lm_config,
+                                visibility_config=vis_config,
                                 skip_image_index=1))
     # TODO: either each batch contains only instances of one scene or implement minibatch with multiple scenes (more complicated)
-    backbone_train_dataloader = []
-    for dataset in backbone_train_dataset:
-        backbone_train_dataloader.append(DataLoader(dataset=dataset, num_workers=4, batch_size=opt.training_batch_size, shuffle=True,
-                                    pin_memory=True))
+    backbone_train_dataloader = {}
+    for scene,dataset in backbone_train_dataset.items():
+        backbone_train_dataloader[scene] = DataLoader(dataset=dataset, num_workers=4, batch_size=opt.training_batch_size, shuffle=True,
+                                    pin_memory=True)
         
     ## Save the trained landmark configurations
-    for i in range(len(backbone_scenes)):
-        scene = backbone_scenes[i]
-        np.savetxt(os.path.join(opt.output_folder, 'landmarks_{}.txt'.format(scene)), backbone_train_dataset[i].landmark)
-        np.savetxt(os.path.join(opt.output_folder, 'visibility_{}.txt'.format(scene)), backbone_train_dataset[i].visibility, fmt='%d')
+    for scene in backbone_scenes:
+        np.savetxt(os.path.join(opt.output_folder, 'landmarks_{}.txt'.format(scene)), backbone_train_dataset[scene].landmark)
+        np.savetxt(os.path.join(opt.output_folder, 'visibility_{}.txt'.format(scene)), backbone_train_dataset[scene].visibility, fmt='%d')
 
     num_landmarks = backbone_train_dataset[0].landmark.shape[1]
 
     # TODO: need specify our backbone model, probably only backbone without head here
-    if opt.model == 'efficientnet':
-        cnn = EfficientNetSLD(num_landmarks=num_landmarks, output_downsample=opt.output_downsample).to(device=device)
+    if opt.model == 'backbonev1':
+        backbone = BackboneV1(output_downsample=opt.output_downsample).to(device=device)
 
-    # TODO: test out hyperparameters
-    optimizer = torch.optim.AdamW(cnn.parameters(), lr=1e-3, betas=(0.9, 0.999), eps=1e-4, weight_decay=0.01)
-    scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=20, gamma=0.5)
+        heads = {}
+        models = {}
+        for scene in backbone_scenes:
+            heads[scene] = SceneHeadV1(num_landmarks=num_landmarks).to(device=device)
+            models[scene] = nn.Sequential(backbone, heads[scene])
+
+    # TODO: test out hyperparameters + how to schedule
+    optimizers = {}
+    schedulers = {}
+    for scene in backbone_scenes:
+        optimizers[scene] = torch.optim.AdamW(models[scene].parameters(), lr=1e-3, betas=(0.9, 0.999), eps=1e-4, weight_decay=0.01)
+        schedulers[scene] = torch.optim.lr_scheduler.StepLR(optimizers[scene], step_size=20, gamma=0.5)
 
     lowest_median_angular_error = 1e6
 
+    # TODO: write new dataloader class, first approach: each batch only contains data from one scene
+    # each epoch iterates through all data from every scene once
     for epoch in range(opt.num_epochs):
         # Training
         training_loss = 0

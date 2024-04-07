@@ -94,6 +94,8 @@ class Indoor6(Dataset):
             PRECOMPUTED_FOCAL_LENGTH = {'scene1': 900, 'scene2a': 1100, 'scene3': 900, 'scene4a': 900, 'scene5': 900, 'scene6': 900}
             self.precomputed_focal_length = PRECOMPUTED_FOCAL_LENGTH[scene_id]
 
+        self.scene_id = scene_id
+
     
     def original_image_name(self, index):
         
@@ -203,6 +205,8 @@ class Indoor6(Dataset):
 
         visibility_mask = 1.0 * _mask1 + 0.5 * _mask3
         output['visibility'] = visibility_mask
+
+        output['scene'] = self.scene_id
 
         return output
 
