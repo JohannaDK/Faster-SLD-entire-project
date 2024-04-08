@@ -3,15 +3,16 @@ import numpy as np
 import random
 
 class CombinedDataset(Dataset):
-    def __init__(self, dataset_list):
+    def __init__(self, dataset_list, shuffle):
         self.dataset_list = dataset_list
         self.dataset_sizes = [len(dataset) for dataset in dataset_list]
         self.total_size = sum(self.dataset_sizes)
         self.cumulative_sizes = [0] + list(np.cumsum(self.dataset_sizes))
 
         # to shuffle dataset within each scene
-        for ds in self.dataset_list:
-            random.shuffle(ds)
+        if shuffle:
+            for ds in self.dataset_list:
+                random.shuffle(ds)
 
     def __len__(self):
         return self.total_size
@@ -24,10 +25,11 @@ class CombinedDataset(Dataset):
                 return self.dataset_list[dataset_idx][sample_idx]
 
 class HomogeneousBatchSampler(Sampler):
-    def __init__(self, dataset, batch_size):
+    def __init__(self, dataset, batch_size, shuffle):
         self.dataset = dataset
         self.current_idx = 0
         self.batch_size = batch_size
+        self.shuffle = shuffle
 
     def __iter__(self):
         batches = []
@@ -42,7 +44,8 @@ class HomogeneousBatchSampler(Sampler):
                 cur_i += self.batch_size
             else:
                 cur_i = cumsum
-        random.shuffle(batches)
+        if self.shuffle:
+            random.shuffle(batches)
         while self.current_idx < len(batches):
             yield batches[self.current_idx]
             self.current_idx += 1

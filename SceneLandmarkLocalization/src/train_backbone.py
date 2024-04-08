@@ -16,8 +16,8 @@ from models.backbone_model import *
 from utils.heatmap import generate_heat_maps_gpu
 
 # unchanged from train.py, just plots losses and (I think) validation errors
-def plotting(ROOT_FOLDER):
-    data = pickle.load(open('%s/stats.pkl' % ROOT_FOLDER, 'rb'))
+def plotting(ROOT_FOLDER, scene):
+    data = pickle.load(open('%s/stats_%s.pkl' % (ROOT_FOLDER,scene), 'rb'))
     fig, axs = plt.subplots(4, 1)
 
     t = 0
@@ -58,7 +58,7 @@ def plotting(ROOT_FOLDER):
 
     plt.subplots_adjust(left=None, bottom=None, right=None, top=None, wspace=0.8, hspace=1.0)
     plt.close()
-    fig.savefig('%s/curve_train_test.png' % ROOT_FOLDER, format='png', dpi=120)
+    fig.savefig('%s/curve_train_test_%s.png' % (ROOT_FOLDER,scene), format='png', dpi=120)
 
 
 # I think this is the actual train  function, dont know what train_patches is for
@@ -71,8 +71,6 @@ def train(opt):
     logging.info("Scene Landmark Detector Training")
     print('Start training ...')
 
-    stats_pkl_logging = {'train': [], 'eval': []}
-
     device = opt.gpu_device
 
     assert len(opt.landmark_indices) == 0 or len(opt.landmark_indices) == 2, "landmark indices must be empty or length 2"
@@ -81,6 +79,11 @@ def train(opt):
     # done for now
     backbone_scenes = ["scene1","scene2a","scene3"]
     backbone_train_dataset_list = []
+
+    # TODO: reformat logging to incorporate different scenes
+    stats_pkl_logging = {}
+    for scene in backbone_scenes:
+        stats_pkl_logging[scene] = {'train': [], 'eval': []}
     
     for scene in backbone_scenes:
         lm_config = "{}_{}".format(opt.landmark_config,scene)
@@ -95,8 +98,8 @@ def train(opt):
                                 visibility_config=vis_config,
                                 skip_image_index=1)))
     # TODO: either each batch contains only instances of one scene or implement minibatch with multiple scenes (more complicated)
-    backbone_train_dataset = CombinedDataset(backbone_train_dataset_list)
-    backbone_train_sampler = HomogeneousBatchSampler(backbone_train_dataset, opt.training_batch_size)
+    backbone_train_dataset = CombinedDataset(backbone_train_dataset_list,shuffle=True)
+    backbone_train_sampler = HomogeneousBatchSampler(backbone_train_dataset, opt.training_batch_size,shuffle=True)
     backbone_train_dataloader = DataLoader(dataset = backbone_train_dataset, num_workers=4, batch_sampler=backbone_train_sampler,pin_memory=True)
         
     ## Save the trained landmark configurations
@@ -166,7 +169,7 @@ def train(opt):
             optimizers[cur_scene].step()
 
             logging.info('epoch %d, iter %d, loss %4.4f' % (epoch, idx, losses.item()))
-            stats_pkl_logging['train'].append({'ep': epoch, 'iter': idx, 'loss': losses.item()})
+            stats_pkl_logging[cur_scene]['train'].append({'ep': epoch, 'iter': idx, 'loss': losses.item()})
 
         # Saving the ckpt of full heads
         for scene in backbone_scenes:
@@ -180,49 +183,61 @@ def train(opt):
             if schedulers[scene].get_last_lr()[-1] > 5e-5:
                 schedulers[scene].step()
 
-        opt.pretrained_model = path
-        eval_stats = inference(opt, opt_tight_thr=1e-3, minimal_tight_thr=1e-3, mode='val')
+        # TODO: reformat s.t. inference works with bb, path should be path to model
+        # save lm and vis configs (just general file path) as we need scene specific ones for indoor6 dataloader
+        lm_config = opt.landmark_config
+        vis_config = opt.visibility_config
+        for scene in backbone_scenes:
+            path = '{}/whole-model-latest-{}.ckpt'.format(opt.output_folder,scene)
+            torch.save(models[scene].stat_dict(),path)
+            opt.pretrained_model = path
+            opt.scene_id = scene
+            opt.landmark_config = '{}_{}'.format(lm_config,scene)
+            opt.visibility_config = '{}_{}'.format(vis_config,scene)
+            eval_stats = inference(opt, opt_tight_thr=1e-3, minimal_tight_thr=1e-3, mode='val')
 
-        median_angular_error = np.median(eval_stats['angular_error'])
+            median_angular_error = np.median(eval_stats['angular_error'])
 
-        if (median_angular_error < lowest_median_angular_error):
-            lowest_median_angular_error = median_angular_error
-            path = '%s/model-best_median.ckpt' % (opt.output_folder)
-            torch.save(cnn.state_dict(), path)
+            if (median_angular_error < lowest_median_angular_error):
+                lowest_median_angular_error = median_angular_error
+                path = '%s/model-best_median_{}.ckpt' % (opt.output_folder,scene)
+                torch.save(models[scene].state_dict(), path)
 
-        # date time
-        ts = datetime.datetime.now().timestamp()
-        dt = datetime.datetime.fromtimestamp(ts)
-        datestring = dt.strftime("%Y-%m-%d_%H-%M-%S")
+            # date time
+            ts = datetime.datetime.now().timestamp()
+            dt = datetime.datetime.fromtimestamp(ts)
+            datestring = dt.strftime("%Y-%m-%d_%H-%M-%S")
 
-        # Print, log and update plot
-        stats_pkl_logging['eval'].append(
-            {'ep': epoch,
-             'angular_error': eval_stats['angular_error'],
-             'pixel_error': eval_stats['pixel_error'],
-             'recall': eval_stats['r5p5']
-             })
+            # Print, log and update plot
+            stats_pkl_logging[scene]['eval'].append(
+                {'ep': epoch,
+                'angular_error': eval_stats['angular_error'],
+                'pixel_error': eval_stats['pixel_error'],
+                'recall': eval_stats['r5p5']
+                })
 
-        str_log = 'epoch %3d: [%s] ' \
-                  'tr_loss= %10.2f, ' \
-                  'lowest_median= %8.4f deg. ' \
-                  'recall= %2.4f ' \
-                  'angular-err(deg.)= [%7.4f %7.4f %7.4f]  ' \
-                  'pixel-err= [%4.3f %4.3f %4.3f] [mean/med./min] ' % (epoch, datestring, training_loss,
-                                                                        lowest_median_angular_error,
-                                                                        eval_stats['r5p5'],
-                                                                        np.mean(eval_stats['angular_error']),
-                                                                        np.median(eval_stats['angular_error']),
-                                                                        np.min(eval_stats['angular_error']),
-                                                                        np.mean(eval_stats['pixel_error']),
-                                                                        np.median(eval_stats['pixel_error']),
-                                                                        np.min(eval_stats['pixel_error']))
-        print(str_log)
-        logging.info(str_log)
+            str_log = 'scene %s'\
+                    'epoch %3d: [%s] ' \
+                    'tr_loss= %10.2f, ' \
+                    'lowest_median= %8.4f deg. ' \
+                    'recall= %2.4f ' \
+                    'angular-err(deg.)= [%7.4f %7.4f %7.4f]  ' \
+                    'pixel-err= [%4.3f %4.3f %4.3f] [mean/med./min] ' % (scene, epoch, datestring, training_loss,
+                                                                            lowest_median_angular_error,
+                                                                            eval_stats['r5p5'],
+                                                                            np.mean(eval_stats['angular_error']),
+                                                                            np.median(eval_stats['angular_error']),
+                                                                            np.min(eval_stats['angular_error']),
+                                                                            np.mean(eval_stats['pixel_error']),
+                                                                            np.median(eval_stats['pixel_error']),
+                                                                            np.min(eval_stats['pixel_error']))
+            print(str_log)
+            logging.info(str_log)
 
-        with open('%s/stats.pkl' % opt.output_folder, 'wb') as f:
-            pickle.dump(stats_pkl_logging, f)
-        plotting(opt.output_folder)
+            # TODO: how to do plotting for stats for each scene, or in total
+            with open('%s/stats_%s.pkl' % (opt.output_folder,scene), 'wb') as f:
+                pickle.dump(stats_pkl_logging, f)
+            plotting(opt.output_folder,scene)
 
 
 def train_patches(opt):

@@ -6,7 +6,8 @@ import os
 
 def _make_encoder(use_pretrained, exportable=True, output_downsample=4):
 
-    if not os.path.exists('SceneLandmarkLocalization/src/models/pretrained_efficientnetlite0.net'):
+    # TODO need to change path to whatever it is on cluster
+    if not os.path.exists('SceneLandmarkLocalization/src/pretrained_efficientnetlite0.net'):
         pretrained = _make_pretrained_efficientnet_lite0(use_pretrained, exportable=exportable)
     
     pretrained = torch.load('pretrained_efficientnetlite0.net')
