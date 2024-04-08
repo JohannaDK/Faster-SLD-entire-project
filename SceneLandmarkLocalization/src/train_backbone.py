@@ -10,6 +10,7 @@ from tqdm import tqdm
 
 from inference import *
 from dataloader.indoor6 import *
+from dataloader.backbone_dataloader import *
 from models.efficientlitesld import EfficientNetSLD
 from models.backbone_model import *
 from utils.heatmap import generate_heat_maps_gpu
@@ -79,12 +80,12 @@ def train(opt):
     # TODO: change train_dataset to own dataloader, maybe make own file like indoor6.py, for now we can just use indoor6 dataloader as we only use those scenes
     # done for now
     backbone_scenes = ["scene1","scene2a","scene3"]
-    backbone_train_dataset = {}
+    backbone_train_dataset_list = []
     
     for scene in backbone_scenes:
         lm_config = "{}_{}".format(opt.landmark_config,scene)
         vis_config = "{}_{}".format(opt.visibility_config,scene)
-        backbone_train_dataset[scene] = (Indoor6(landmark_idx=np.arange(opt.landmark_indices[0],
+        backbone_train_dataset_list.append((Indoor6(landmark_idx=np.arange(opt.landmark_indices[0],
                                                     opt.landmark_indices[1]) if len(opt.landmark_indices) == 2 else [None],
                                 scene_id=scene,
                                 mode='train',
@@ -92,19 +93,18 @@ def train(opt):
                                 input_image_downsample=2,
                                 landmark_config=lm_config,
                                 visibility_config=vis_config,
-                                skip_image_index=1))
+                                skip_image_index=1)))
     # TODO: either each batch contains only instances of one scene or implement minibatch with multiple scenes (more complicated)
-    backbone_train_dataloader = {}
-    for scene,dataset in backbone_train_dataset.items():
-        backbone_train_dataloader[scene] = DataLoader(dataset=dataset, num_workers=4, batch_size=opt.training_batch_size, shuffle=True,
-                                    pin_memory=True)
+    backbone_train_dataset = CombinedDataset(backbone_train_dataset_list)
+    backbone_train_sampler = HomogeneousBatchSampler(backbone_train_dataset, opt.training_batch_size)
+    backbone_train_dataloader = DataLoader(dataset = backbone_train_dataset, num_workers=4, batch_sampler=backbone_train_sampler,pin_memory=True)
         
     ## Save the trained landmark configurations
     for scene in backbone_scenes:
         np.savetxt(os.path.join(opt.output_folder, 'landmarks_{}.txt'.format(scene)), backbone_train_dataset[scene].landmark)
         np.savetxt(os.path.join(opt.output_folder, 'visibility_{}.txt'.format(scene)), backbone_train_dataset[scene].visibility, fmt='%d')
 
-    num_landmarks = backbone_train_dataset[0].landmark.shape[1]
+    num_landmarks = backbone_train_dataset_list[0].landmark.shape[1]
 
     # TODO: need specify our backbone model, probably only backbone without head here
     if opt.model == 'backbonev1':
@@ -130,8 +130,11 @@ def train(opt):
     for epoch in range(opt.num_epochs):
         # Training
         training_loss = 0
-        for idx, batch in enumerate(tqdm(train_dataloader)):
-            cnn.train()
+        for idx, batch in enumerate(tqdm(backbone_train_dataloader)):
+            # check if all samples in batch are indeed from same scene
+            assert all(sc == batch['scene'][0] for sc in batch['scene'])
+            cur_scene = batch['scene'][0]
+            models[cur_scene].train()
 
             images = batch['image'].to(device=device)
             B, _, H, W = images.shape
@@ -149,28 +152,33 @@ def train(opt):
             gt.requires_grad = False
 
             # Clear gradient
-            optimizer.zero_grad()
+            optimizers[cur_scene].zero_grad()
 
             # TODO: change forward pass such that we take a different head for each training example
             # CNN forward pass
-            pred = cnn(images)['1']
+            pred = models[cur_scene](images)
 
             # Compute loss and do backward pass
             losses = torch.sum((pred[visibility != 0.5] - gt[visibility != 0.5]) ** 2)
 
             training_loss += losses.detach().clone().item()
             losses.backward()
-            optimizer.step()
+            optimizers[cur_scene].step()
 
             logging.info('epoch %d, iter %d, loss %4.4f' % (epoch, idx, losses.item()))
             stats_pkl_logging['train'].append({'ep': epoch, 'iter': idx, 'loss': losses.item()})
 
-        # Saving the ckpt
-        path = '%s/model-latest.ckpt' % (opt.output_folder)
-        torch.save(cnn.state_dict(), path)
+        # Saving the ckpt of full heads
+        for scene in backbone_scenes:
+            path = '{}/heads-latest-{}.ckpt'.format(opt.output_folder,scene)
+            torch.save(heads[scene].state_dict(), path)
+        # Save ckpt of backbone
+        path = '{}/bb-latest.ckpt'.format(opt.output_folder)
+        torch.save(backbone.stat_dict(),path)
 
-        if scheduler.get_last_lr()[-1] > 5e-5:
-            scheduler.step()
+        for scene in backbone_scenes:
+            if schedulers[scene].get_last_lr()[-1] > 5e-5:
+                schedulers[scene].step()
 
         opt.pretrained_model = path
         eval_stats = inference(opt, opt_tight_thr=1e-3, minimal_tight_thr=1e-3, mode='val')

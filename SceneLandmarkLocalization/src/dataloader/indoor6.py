@@ -183,6 +183,7 @@ class Indoor6(Dataset):
                   'intrinsics': torch.tensor(K, dtype=torch.float32, requires_grad=False),
                   'inv_intrinsics': torch.tensor(K_inv, dtype=torch.float32, requires_grad=False),
                   'landmark3d': torch.tensor(landmark3d[:3], dtype=torch.float32, requires_grad=False),
+                  'scene': self.scene_id
                   }
         
         proj = K @ (C_T_G[:3, :3] @ self.landmark + C_T_G[:3, 3:])
@@ -205,8 +206,6 @@ class Indoor6(Dataset):
 
         visibility_mask = 1.0 * _mask1 + 0.5 * _mask3
         output['visibility'] = visibility_mask
-
-        output['scene'] = self.scene_id
 
         return output
 
