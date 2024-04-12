@@ -6,7 +6,7 @@ from tabnanny import check
 # script for running backbone training, specify hyperparameters here
 if __name__ == '__main__':
 
-    home_dir = os.path.expanduser("~")
+    home_dir = "/cluster/courses/3dv/data/team-25/Faster-SLD/"
 
     # Specify the paths to the dataset and the output folders.
     # TODO: specify which scenes to train backbone on, for now this is alright as we only train on indoor 6 anyways
@@ -22,13 +22,15 @@ if __name__ == '__main__':
     # for now, can leave empty, only needed for indoor6 dataloader
     scene_name = 'backbone_scenes'
 
+    model = 'efficientnet-backbonev1'
+
     # Specify the landmark file
     # TODO: need file with landmarks corresponding to the scenes we choose (generate using landmark_selection)
-    landmark_config = 'landmarks/landmarks-1000v10'
+    landmark_config = 'landmarks/landmarks-200v9'
 
     # Specify the visibility file
     # TODO: same as landmark_config
-    visibility_config = 'landmarks/visibility-1000v10_depth_normal'
+    visibility_config = 'landmarks/visibility-200v9_depth_normal'
 
     # Specify the batch size for the minibatches used for training.
     # TODO: in general hyperparameters
@@ -43,13 +45,13 @@ if __name__ == '__main__':
     # Specify the number of landmarks and the block size. The number of landmarks should be 
     # identical to the number of landmarks in the landmark file specified for the 
     # landmark_config parameter.
-    num_landmarks = 300
+    num_landmarks = 200
 
     # Specify the number of landmarks that will be present in each subset when the set of 
     # landmarks is partitioned into mutually exclusive subsets. The value specified here 
     # should exactly divide the landmark count. For example, when num_landmarks = 1000 and 
     # block_size = 125, we get 1000/125 = 8 subsets of landmarks.
-    block_size = 300
+    block_size = 200
 
     # Specify which subset you want to train the model for. For example, when 
     # num_landmarks = 1000 and block_size = 125, then subset_index = 0 indicates that the 
@@ -74,7 +76,7 @@ if __name__ == '__main__':
         os.makedirs(model_dir, exist_ok=True)
 
         # Create the command line string for the training job.
-        cmd = 'python ./local_training.py'
+        cmd = 'python3 ./local_training.py'
         cmd += ' --dataset_dir %s' % dataset_dir
         cmd += ' --scene_id %s' % scene_name
         cmd += ' --experiment_file %s.txt' % experiment_name
@@ -88,6 +90,7 @@ if __name__ == '__main__':
         cmd += ' --training_batch_size %d' % training_batch_size
         cmd += ' --output_downsample %d' % output_downsample 
         cmd += ' --num_epochs %d' % num_epochs
+        cmd += ' --model %s' % model
 
         # Launch training
         os.system(cmd)

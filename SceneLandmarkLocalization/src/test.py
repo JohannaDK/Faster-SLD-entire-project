@@ -67,67 +67,96 @@ this worked, backbone is updated every iteration but each head only when it's pa
 testing dataloader
 """
 
-from torch.utils.data import DataLoader,Sampler,Dataset
-import random
+# from torch.utils.data import DataLoader,Sampler,Dataset
+# import random
 
-class CombinedDataset(Dataset):
-    def __init__(self, dataset_list):
-        self.dataset_list = dataset_list
-        self.dataset_sizes = [len(dataset) for dataset in dataset_list]
-        self.total_size = sum(self.dataset_sizes)
-        self.cumulative_sizes = [0] + list(np.cumsum(self.dataset_sizes))
+# class CombinedDataset(Dataset):
+#     def __init__(self, dataset_list):
+#         self.dataset_list = dataset_list
+#         self.dataset_sizes = [len(dataset) for dataset in dataset_list]
+#         self.total_size = sum(self.dataset_sizes)
+#         self.cumulative_sizes = [0] + list(np.cumsum(self.dataset_sizes))
 
-        for ds in self.dataset_list:
-            random.shuffle(ds)
+#         for ds in self.dataset_list:
+#             random.shuffle(ds)
 
-    def __len__(self):
-        return self.total_size
+#     def __len__(self):
+#         return self.total_size
 
-    def __getitem__(self, idx):
-        for i, dataset_cumulative_size in enumerate(self.cumulative_sizes):
-            if idx < dataset_cumulative_size:
-                dataset_idx = i - 1
-                sample_idx = idx - self.cumulative_sizes[dataset_idx]
-                return self.dataset_list[dataset_idx][sample_idx]
+#     def __getitem__(self, idx):
+#         for i, dataset_cumulative_size in enumerate(self.cumulative_sizes):
+#             if idx < dataset_cumulative_size:
+#                 dataset_idx = i - 1
+#                 sample_idx = idx - self.cumulative_sizes[dataset_idx]
+#                 return self.dataset_list[dataset_idx][sample_idx]
 
-class HomogeneousBatchSampler(Sampler):
-    def __init__(self, dataset, batch_size):
-        self.dataset = dataset
-        self.current_idx = 0
-        self.batch_size = batch_size
+# class HomogeneousBatchSampler(Sampler):
+#     def __init__(self, dataset, batch_size):
+#         self.dataset = dataset
+#         self.current_idx = 0
+#         self.batch_size = batch_size
 
-    def __iter__(self):
-        batches = []
-        cur_i = 0
-        # shuffle batches as well, so each iteration of training loop we train on a random scene
-        while cur_i < len(self.dataset):
-            for cumsum in self.dataset.cumulative_sizes:
-                if cur_i < cumsum:
-                    break
-            batches.append(list(range(cur_i, min(cur_i + self.batch_size, cumsum))))
-            if cur_i + self.batch_size < cumsum:
-                cur_i += self.batch_size
-            else:
-                cur_i = cumsum
-        random.shuffle(batches)
-        while self.current_idx < len(batches):
-            yield batches[self.current_idx]
-            self.current_idx += 1
+#     def __iter__(self):
+#         batches = []
+#         cur_i = 0
+#         # shuffle batches as well, so each iteration of training loop we train on a random scene
+#         while cur_i < len(self.dataset):
+#             for cumsum in self.dataset.cumulative_sizes:
+#                 if cur_i < cumsum:
+#                     break
+#             batches.append(list(range(cur_i, min(cur_i + self.batch_size, cumsum))))
+#             if cur_i + self.batch_size < cumsum:
+#                 cur_i += self.batch_size
+#             else:
+#                 cur_i = cumsum
+#         random.shuffle(batches)
+#         while self.current_idx < len(batches):
+#             yield batches[self.current_idx]
+#             self.current_idx += 1
 
         
 
-    def __len__(self):
-        # Total number of batches across all datasets
-        return len(self.dataset) // self.batch_size
+#     def __len__(self):
+#         # Total number of batches across all datasets
+#         return len(self.dataset) // self.batch_size
   
-ds1 = [{"data":x,"dataset":y} for (x,y) in list(zip(np.random.rand(10),[1]*10))]
-ds2 = [{"data":x,"dataset":y} for (x,y) in list(zip(np.random.rand(6),[2]*6))]
-ds3 = [{"data":x,"dataset":y} for (x,y) in list(zip(np.random.rand(9),[3]*9))]
-print(ds1)
-datasets = CombinedDataset([ds1,ds2,ds3])
-batch_size = 2
-sampler = HomogeneousBatchSampler(datasets, batch_size)
-dataloader = DataLoader(datasets, batch_sampler=sampler)
+# ds1 = [{"data":x,"dataset":y} for (x,y) in list(zip(np.random.rand(10),[1]*10))]
+# ds2 = [{"data":x,"dataset":y} for (x,y) in list(zip(np.random.rand(6),[2]*6))]
+# ds3 = [{"data":x,"dataset":y} for (x,y) in list(zip(np.random.rand(9),[3]*9))]
+# print(ds1)
+# datasets = CombinedDataset([ds1,ds2,ds3])
+# batch_size = 2
+# sampler = HomogeneousBatchSampler(datasets, batch_size)
+# dataloader = DataLoader(datasets, batch_sampler=sampler)
 
-for batch in dataloader:
-    print(batch)
+# for batch in dataloader:
+#     print(batch)
+
+"""
+testing shuffle for dicts
+"""
+
+# import random
+
+# # Sample dictionary of arrays
+# data = {
+#     'feature1': [1, 2, 3, 4, 5],
+#     'feature2': [6, 7, 8, 9, 10],
+#     'feature3': [11, 12, 13, 14, 15]
+# }
+
+# # Zip the values together to maintain correspondence
+# zipped_data = list(zip(*data.values()))
+
+# # Shuffle the zipped data
+# random.shuffle(zipped_data)
+
+# # Unzip the shuffled data back into a dictionary
+# shuffled_data = {key: list(value) for key, value in zip(data.keys(), zip(*zipped_data))}
+
+# print(shuffled_data)
+
+"""
+testing cuda 
+"""
+print(torch.cuda.is_available())

@@ -10,9 +10,14 @@ class CombinedDataset(Dataset):
         self.cumulative_sizes = [0] + list(np.cumsum(self.dataset_sizes))
 
         # to shuffle dataset within each scene
-        if shuffle:
-            for ds in self.dataset_list:
-                random.shuffle(ds)
+        # if shuffle:
+        #     for ds in self.dataset_list:
+        #         zipped = list(zip(*ds.values()))
+
+        #         random.shuffle(zipped)
+
+        #         ds = {key: list(value) for key, value in zip(data.keys(), zip(*zipped))}
+                
 
     def __len__(self):
         return self.total_size

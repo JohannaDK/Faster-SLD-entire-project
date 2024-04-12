@@ -9998,3 +9998,15 @@ data/indoor6/scene1/scene1/images/image-003284.intrinsics.txt
 data/indoor6/scene1/scene1/images/image-003284.pose.txt
 data/indoor6/scene1/scene1/images/image-003285.color.jpg
 data/indoor6/scene1/scene1/images/image-003285.intrinsics.txt
+SceneLandmarkLocalization/src/__pycache__/inference.cpython-310.pyc
+SceneLandmarkLocalization/src/__pycache__/train_backbone.cpython-310.pyc
+SceneLandmarkLocalization/src/__pycache__/train.cpython-310.pyc
+SceneLandmarkLocalization/src/cuda/11.8
+SceneLandmarkLocalization/src/dataloader/__pycache__/backbone_dataloader.cpython-310.pyc
+SceneLandmarkLocalization/src/dataloader/__pycache__/indoor6.cpython-310.pyc
+SceneLandmarkLocalization/src/models/__pycache__/backbone_model.cpython-310.pyc
+SceneLandmarkLocalization/src/models/__pycache__/blocks.cpython-310.pyc
+SceneLandmarkLocalization/src/models/__pycache__/conv2d_layers.cpython-310.pyc
+SceneLandmarkLocalization/src/models/__pycache__/efficientlitesld.cpython-310.pyc
+SceneLandmarkLocalization/src/utils/__pycache__/heatmap.cpython-310.pyc
+SceneLandmarkLocalization/src/utils/__pycache__/pnp.cpython-310.pyc

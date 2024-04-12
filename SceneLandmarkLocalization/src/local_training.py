@@ -8,7 +8,7 @@ Args = None
 def launch_training():
     print("Experiment File: %s" % Args.experiment_file)
     print("Model Dir: %s" % Args.model_dir)
-    cmd = 'python main.py --action train_patches'
+    cmd = 'python3 main.py --action train_patches'
     cmd += ' --training_batch_size %d' % (Args.training_batch_size)
     cmd += ' --output_downsample %d' % (Args.output_downsample)
     cmd += ' --num_epochs %d' % (Args.num_epochs)
@@ -19,6 +19,7 @@ def launch_training():
     cmd += ' --output_folder %s' % (Args.model_dir)
     cmd += ' --landmark_indices %d' % (Args.landmark_index_start)
     cmd += ' --landmark_indices %d' % (Args.landmark_index_stop)
+    cmd += ' --model %s' % (Args.model)
     os.system(cmd)
 
 if __name__ == '__main__':
@@ -62,6 +63,9 @@ if __name__ == '__main__':
     parser.add_argument(
         '--num_epochs', type=int, required=True,
         help='the number of epochs used for training.')
+    parser.add_argument(
+        '--model', type=str, required=True,
+        help='model for training')
     Args = parser.parse_args()
 
     # Write the experiment file

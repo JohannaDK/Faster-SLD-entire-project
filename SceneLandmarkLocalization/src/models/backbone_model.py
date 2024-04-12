@@ -37,7 +37,7 @@ class ASPP(nn.Module):
         return torch.cat((d1, d2, d3, d4), dim=1)
 
 
-class BackboneV1(torch.nn.Module):
+class EfficientNetBackboneV1(torch.nn.Module):
     """
     Backbone network v1
     """
@@ -50,7 +50,7 @@ class BackboneV1(torch.nn.Module):
             features (int, optional): Number of features. Defaults to 256.
             backbone (str, optional): Backbone network for encoder. Defaults to efficientnetlite0
         """
-        super(BackboneV1, self).__init__()
+        super(EfficientNetBackboneV1, self).__init__()
 
         self.pretrained, _ = _make_encoder(use_pretrained=True, output_downsample=output_downsample)
 

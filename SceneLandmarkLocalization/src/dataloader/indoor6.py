@@ -237,6 +237,7 @@ class Indoor6Patches(Indoor6):
 
         self.num_landmarks = self.landmark.shape[1]
 
+
     def _extract_patch(self, C_T_G, lm_idx, K, W_modified, H_modified, center=False, adjust_boundary=True):
 
         proj = K @ (C_T_G[:3, :3] @ self.landmark[:, lm_idx:(lm_idx + 1)] + C_T_G[:3, 3:])
@@ -437,6 +438,7 @@ class Indoor6Patches(Indoor6):
         output = {'patches': clipped_patches,
                   'landmark2d': torch.tensor(keypoint_locations, dtype=torch.float, requires_grad=False),
                   'visibility': torch.tensor(landmark_visibility_on_patch, requires_grad=False),
+                  'scene': self.scene_id,
                   }
 
         return output

@@ -1,6 +1,6 @@
 import argparse
 from inference import *
-from train import *
+from train_backbone import *
 
 DEVICE = None
 # auto-detect default device
