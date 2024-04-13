@@ -1,0 +1,6 @@
+Running on host: studgpu-node09.inf.ethz.ch
+In directory: /cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src
+Starting on: Sat Apr 13 12:52:26 CEST 2024
+SLURM_JOB_ID: 8671
+slurmstepd: error: *** STEP 8671.0 ON studgpu-node09 CANCELLED AT 2024-04-13T12:59:45 ***
+slurmstepd: error: *** JOB 8671 ON studgpu-node09 CANCELLED AT 2024-04-13T12:59:45 ***

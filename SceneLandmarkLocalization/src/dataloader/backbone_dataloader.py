@@ -37,9 +37,10 @@ class HomogeneousBatchSampler(Sampler):
         self.shuffle = shuffle
 
     def __iter__(self):
+        self.current_idx = 0
         batches = []
         cur_i = 0
-        # shuffle batches as well, so each iteration of training loop we train on a random scene
+        # shuffle batches, so each iteration of training loop we train on a random scene
         while cur_i < len(self.dataset):
             for cumsum in self.dataset.cumulative_sizes:
                 if cur_i < cumsum:

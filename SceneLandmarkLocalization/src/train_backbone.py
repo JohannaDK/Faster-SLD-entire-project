@@ -23,12 +23,12 @@ def plotting(ROOT_FOLDER, scene):
     t = 0
     s = []
     epoch = 0
-    for i in range(len(data['train'])-1):
-        if data['train'][i+1]['ep'] == epoch + 1:
+    for i in range(len(data[scene]['train'])-1):
+        if data[scene]['train'][i+1]['ep'] == epoch + 1:
             epoch += 1
         else:
             t += 1
-            s.append(data['train'][i]['loss'])
+            s.append(data[scene]['train'][i]['loss'])
 
     t = np.arange(0, t)
     s = np.array(s)
@@ -38,20 +38,20 @@ def plotting(ROOT_FOLDER, scene):
     axs[0].set(xlabel='iterations', ylabel='loss', title='')
     axs[0].grid()
 
-    max_grad = np.array([data['train'][i]['max_grad'] for i in range(len(data['train']))])
+    max_grad = np.array([data[scene]['train'][i]['max_grad'] for i in range(len(data[scene]['train']))])
     axs[1].plot(np.arange(0, len(max_grad)), np.log10(max_grad))
     axs[1].set(xlabel='iterations', ylabel='max gradient', title='')
     axs[1].grid()
 
-    t = np.array([data['eval'][i]['ep'] for i in range(len(data['eval']))])
-    s = np.array([np.median(data['eval'][i]['pixel_error']) for i in range(len(data['eval']))])
+    t = np.array([data[scene]['eval'][i]['ep'] for i in range(len(data[scene]['eval']))])
+    s = np.array([np.median(data[scene]['eval'][i]['pixel_error']) for i in range(len(data[scene]['eval']))])
     axs[2].plot(t, s)
     axs[2].set(xlabel='epoch', ylabel='Pixel error', title='')
     axs[2].grid()
     axs[2].set_yticks(np.arange(0, 20, 5), minor=False)
     axs[2].set_ylim(0, 20)
 
-    r = np.array([data['eval'][i]['recall'] for i in range(len(data['eval']))])
+    r = np.array([data[scene]['eval'][i]['recall'] for i in range(len(data[scene]['eval']))])
     axs[3].plot(t, r)
     axs[3].set(xlabel='epoch', ylabel='recall', title='')
     axs[3].grid()
@@ -175,7 +175,7 @@ def train(opt):
             torch.save(heads[scene].state_dict(), path)
         # Save ckpt of backbone
         path = '{}/bb-latest.ckpt'.format(opt.output_folder)
-        torch.save(backbone.stat_dict(),path)
+        torch.save(backbone.state_dict(),path)
 
         for scene in backbone_scenes:
             if schedulers[scene].get_last_lr()[-1] > 5e-5:
@@ -185,7 +185,7 @@ def train(opt):
         # save lm and vis configs (just general file path) as we need scene specific ones for indoor6 dataloader
         for scene in backbone_scenes:
             path = '{}/whole-model-latest-{}.ckpt'.format(opt.output_folder,scene)
-            torch.save(models[scene].stat_dict(),path)
+            torch.save(models[scene].state_dict(),path)
             opt.pretrained_model = path
             opt.scene_id = scene
             eval_stats = inference(opt, opt_tight_thr=1e-3, minimal_tight_thr=1e-3, mode='val')
@@ -295,7 +295,6 @@ def train_patches(opt):
         # Training
         training_loss = 0
         for idx, batch in enumerate(tqdm(backbone_train_dataloader)):
-
             assert all(sc == batch['scene'][0] for sc in batch['scene'])
             cur_scene = batch['scene'][0]
             models[cur_scene].train()
@@ -370,7 +369,7 @@ def train_patches(opt):
             torch.save(heads[scene].state_dict(), path)
         # Save ckpt of backbone
         path = '{}/bb-latest.ckpt'.format(opt.output_folder)
-        torch.save(backbone.stat_dict(),path)
+        torch.save(backbone.state_dict(),path)
 
         for scene in backbone_scenes:
             if schedulers[scene].get_last_lr()[-1] > 5e-5:
@@ -378,6 +377,7 @@ def train_patches(opt):
 
         for scene in backbone_scenes:
             path = '{}/model-latest-{}.ckpt'.format(opt.output_folder,scene)
+            torch.save(models[scene].state_dict(), path)
             opt.pretrained_model = [path]
             opt.scene_id = scene
             eval_stats = inference(opt, opt_tight_thr=1e-3, minimal_tight_thr=1e-3, mode='val')

@@ -1,0 +1,5 @@
+Running on host: studgpu-node17.inf.ethz.ch
+In directory: /cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src
+Starting on: Sat Apr 13 13:05:28 CEST 2024
+SLURM_JOB_ID: 8673
+slurmstepd: error: *** JOB 8673 ON studgpu-node17 CANCELLED AT 2024-04-13T13:05:41 ***

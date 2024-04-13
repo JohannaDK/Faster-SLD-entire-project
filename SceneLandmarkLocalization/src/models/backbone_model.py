@@ -42,7 +42,7 @@ class EfficientNetBackboneV1(torch.nn.Module):
     Backbone network v1
     """
 
-    def __init__(self, path=None, output_downsample=4, features=320):
+    def __init__(self, path=None, output_downsample=8, features=320):
         """Init.
 
         Args:

@@ -3,12 +3,13 @@ import numpy as np
 import os
 import torch
 from torch.utils.data import DataLoader
+import torch.nn as nn
 from tqdm import tqdm
 import random
 from datetime import datetime
 
 from dataloader.indoor6 import Indoor6
-from models.efficientlitesld import EfficientNetSLD
+from models.backbone_model import EfficientNetBackboneV1, SceneHeadV1
 from utils.pnp import *
 
 
@@ -117,10 +118,15 @@ def inference(opt, minimal_tight_thr=1e-2, opt_tight_thr=5e-3, mode='test'):
     cnns = []
     nLandmarks = opt.landmark_indices
     num_landmarks = opt.landmark_indices[-1] - opt.landmark_indices[0]
+    print("num", num_landmarks)
 
     for idx, pretrained_model in enumerate(PRETRAINED_MODEL):
-        if opt.model == 'efficientnet':
-            cnn = EfficientNetSLD(num_landmarks=nLandmarks[idx+1]-nLandmarks[idx], output_downsample=opt.output_downsample).to(device=device)
+        if opt.model == 'efficientnet-backbonev1':
+            bb = EfficientNetBackboneV1(output_downsample=opt.output_downsample).to(device=device)
+            head = SceneHeadV1(num_landmarks=num_landmarks).to(device=device)
+            cnn = nn.Sequential(bb,head).to(device=device)
+        elif opt.model == 'efficientnet':
+            cnn = EfficientNetSLD(num_landmarks=num_landmarks, output_downsample=opt.output_downsample).to(device=device)
 
         cnn.load_state_dict(torch.load(pretrained_model))
         cnn = cnn.to(device=device)
@@ -168,7 +174,7 @@ def inference(opt, minimal_tight_thr=1e-2, opt_tight_thr=5e-3, mode='test'):
                 pred_heatmap = []
                 for cnn in cnns:
                     pred = cnn(image)
-                    pred_heatmap.append(pred['1'])
+                    pred_heatmap.append(pred)
 
                 pred_heatmap = torch.cat(pred_heatmap, axis=1)
                 pred_heatmap *= (pred_heatmap > peak_threshold).float()
@@ -234,6 +240,7 @@ def inference(opt, minimal_tight_thr=1e-2, opt_tight_thr=5e-3, mode='test'):
                     m['trans_err_all'] = np.array([trans_err])
                     test_image_logging.append(m)
                     img_id += 1
+                
 
     elapsedtime = tq.format_dict["elapsed"]
     processing_speed = len(test_dataset)/elapsedtime
