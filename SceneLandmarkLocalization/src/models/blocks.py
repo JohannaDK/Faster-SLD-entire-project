@@ -4,22 +4,31 @@ from .conv2d_layers import Conv2dSameExport
 import os
 
 
-def _make_encoder(use_pretrained, exportable=True, output_downsample=4):
+def _make_encoder(use_pretrained, model, exportable=True, output_downsample=4):
 
     # TODO need to change path to whatever it is on cluster
-    if not os.path.exists('SceneLandmarkLocalization/src/pretrained_efficientnetlite0.net'):
+    if model == "efficientnet":
         pretrained = _make_pretrained_efficientnet_lite0(use_pretrained, exportable=exportable)
-    
-    pretrained = torch.load('pretrained_efficientnetlite0.net')
+        pretrained = torch.load('pretrained_efficientnetlite0.net')
+        channels = 320
+        if output_downsample <= 16:
+            pretrained.layer2[0][0].conv_dw.stride = (1, 1)
+        if output_downsample <= 8:
+            pretrained.layer3[0][0].conv_dw.stride = (1, 1)
+        if output_downsample <= 4:
+            pretrained.layer4[0][0].conv_dw.stride = (1, 1)
+    elif model == "resnet":
+        pretrained = _make_pretrained_resnext101_wsl(None)
+        channels = 2048
+        if output_downsample == 8:
+            #upsample by 2
+            pretrained.layer3[0].conv2.stride=(1,1)
+            pretrained.layer3[0].downsample[0].stride=(1,1)
+            #upsample by 2
+            pretrained.layer4[0].conv2.stride=(1,1)
+            pretrained.layer4[0].downsample[0].stride=(1,1)
 
-    if output_downsample <= 16:
-        pretrained.layer2[0][0].conv_dw.stride = (1, 1)
-    if output_downsample <= 8:
-        pretrained.layer3[0][0].conv_dw.stride = (1, 1)
-    if output_downsample <= 4:
-        pretrained.layer4[0][0].conv_dw.stride = (1, 1)
-
-    return pretrained, None
+    return pretrained, channels
 
 
 def _make_pretrained_efficientnet_lite0(use_pretrained, exportable=False):

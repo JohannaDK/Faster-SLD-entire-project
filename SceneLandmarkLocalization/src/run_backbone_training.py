@@ -15,14 +15,14 @@ if __name__ == '__main__':
 
     # Specify a version number which can be incremented when training multiple variants on 
     # the same scene.
-    version_no = 1
+    version_no = 2
     
     # Specify the scene name
     # TODO: if we use indoor6, then scene name must correspond to one of the indoor6 scene names
     # for now, can leave empty, only needed for indoor6 dataloader
-    scene_name = 'backbone_scenes'
+    scene_name = 'effnet-bb-v2'
 
-    model = 'efficientnet-backbonev1'
+    model = 'efficientnet-backbonev2'
 
     # Specify the landmark file
     # TODO: need file with landmarks corresponding to the scenes we choose (generate using landmark_selection)

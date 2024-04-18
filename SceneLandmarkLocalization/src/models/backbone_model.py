@@ -37,37 +37,23 @@ class ASPP(nn.Module):
         return torch.cat((d1, d2, d3, d4), dim=1)
 
 
-class EfficientNetBackboneV1(torch.nn.Module):
+class BackboneV1(torch.nn.Module):
     """
     Backbone network v1
     """
 
-    def __init__(self, path=None, output_downsample=8, features=320):
-        """Init.
+    def __init__(self, model, path=None, output_downsample=8, features=320):
 
-        Args:
-            path (str, optional): Path to saved model. Defaults to None.
-            features (int, optional): Number of features. Defaults to 256.
-            backbone (str, optional): Backbone network for encoder. Defaults to efficientnetlite0
-        """
-        super(EfficientNetBackboneV1, self).__init__()
+        super(BackboneV1, self).__init__()
 
-        self.pretrained, _ = _make_encoder(use_pretrained=True, output_downsample=output_downsample)
+        self.pretrained, channels = _make_encoder(use_pretrained=True, model = model, output_downsample=output_downsample)
+
+        self.output_channels = channels
 
         if path:
             self.load(path)
 
     def forward(self, x):
-        """Forward pass.
-
-        Args:
-            x (tensor): input data (image)
-
-        Returns:
-            Heatmap prediction
-            ['1']: quarter of input spatial dimension
-            ['2']: half of input spatial dimension
-        """
 
         layer_1 = self.pretrained.layer1(x)
         layer_2 = self.pretrained.layer2(layer_1)
@@ -84,13 +70,7 @@ class SceneHeadV1(torch.nn.Module):
     """
 
     def __init__(self, path=None, num_landmarks=200, features=320):
-        """Init.
 
-        Args:
-            path (str, optional): Path to saved model. Defaults to None.
-            features (int, optional): Number of features. Defaults to 256.
-            backbone (str, optional): Backbone network for encoder. Defaults to efficientnetlite0
-        """
         super(SceneHeadV1, self).__init__()
 
         self.aspp = nn.Sequential(
@@ -105,18 +85,64 @@ class SceneHeadV1(torch.nn.Module):
             self.load(path)
 
     def forward(self, x):
-        """Forward pass.
-
-        Args:
-            x (tensor): input data (image)
-
-        Returns:
-            Heatmap prediction
-            ['1']: quarter of input spatial dimension
-            ['2']: half of input spatial dimension
-        """
 
         y1 = self.aspp(x)
         z1 = self.heatmap_outputs_res1(y1)
+
+        return z1
+
+class BackboneV2(torch.nn.Module):
+    """
+    Backbone network v2
+    """
+
+    def __init__(self, model, path=None, output_downsample=8, features=320):
+
+        super(BackboneV2, self).__init__()
+
+        self.pretrained, channels = _make_encoder(use_pretrained=True, model = model, output_downsample=output_downsample)
+
+        self.output_channels = channels
+
+        self.aspp = nn.Sequential(
+            ASPP(in_ch=features, d1=1, d2=2, d3=3, d4=4, reduction=4),
+        )
+
+        if path:
+            self.load(path)
+
+    def forward(self, x):
+
+        layer_1 = self.pretrained.layer1(x)
+        layer_2 = self.pretrained.layer2(layer_1)
+        layer_3 = self.pretrained.layer3(layer_2)
+        layer_4 = self.pretrained.layer4(layer_3)
+
+        dilated = self.aspp(layer_4)
+
+        return dilated
+
+class SceneHeadV2(torch.nn.Module):
+
+    """
+    Scene head network v2
+    """
+
+    def __init__(self, path=None, num_landmarks=200, features=320):
+
+        super(SceneHeadV2, self).__init__()
+
+        self.heatmap_outputs_res1 = nn.Sequential(
+            nn.Conv2d(features, features*2, kernel_size=1, stride=1, padding=0),
+            nn.ReLU(),
+            nn.Conv2d(features*2, num_landmarks, kernel_size=1, stride=1, padding=0)
+        )
+
+        if path:
+            self.load(path)
+
+    def forward(self, x):
+
+        z1 = self.heatmap_outputs_res1(x)
 
         return z1

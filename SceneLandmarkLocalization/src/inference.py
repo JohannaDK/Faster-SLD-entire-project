@@ -9,7 +9,7 @@ import random
 from datetime import datetime
 
 from dataloader.indoor6 import Indoor6
-from models.backbone_model import EfficientNetBackboneV1, SceneHeadV1
+from models.backbone_model import *
 from utils.pnp import *
 
 
@@ -122,12 +122,23 @@ def inference(opt, minimal_tight_thr=1e-2, opt_tight_thr=5e-3, mode='test'):
 
     for idx, pretrained_model in enumerate(PRETRAINED_MODEL):
         if opt.model == 'efficientnet-backbonev1':
-            bb = EfficientNetBackboneV1(output_downsample=opt.output_downsample).to(device=device)
-            head = SceneHeadV1(num_landmarks=num_landmarks).to(device=device)
+            bb = BackboneV1(model="efficientnet",output_downsample=opt.output_downsample).to(device=device)
+            feats = bb.output_channels
+            head = SceneHeadV1(num_landmarks=num_landmarks, features=feats).to(device=device)
             cnn = nn.Sequential(bb,head).to(device=device)
         elif opt.model == 'efficientnet':
             cnn = EfficientNetSLD(num_landmarks=num_landmarks, output_downsample=opt.output_downsample).to(device=device)
-
+        elif opt.model =='resnet-backbonev1':
+            bb = BackboneV1(model="resnet",output_downsample=opt.output_downsample).to(device=device)
+            feats = bb.output_channels
+            head = SceneHeadV1(num_landmarks=num_landmarks, features=feats).to(device=device)
+            cnn = nn.Sequential(bb,head).to(device=device)
+        elif opt.model=='efficientnet-backbonev2':
+            bb = BackboneV2(model="efficientnet",output_downsample=opt.output_downsample).to(device=device)
+            feats = bb.output_channels
+            head = SceneHeadV2(num_landmarks=num_landmarks, features=feats).to(device=device)
+            cnn = nn.Sequential(bb,head).to(device=device)
+            
         cnn.load_state_dict(torch.load(pretrained_model))
         cnn = cnn.to(device=device)
         cnn.eval()

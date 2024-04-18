@@ -274,13 +274,30 @@ def train_patches(opt):
 
     num_landmarks = backbone_train_dataset_list[0].landmark.shape[1]
 
+    # model selection
     if opt.model == 'efficientnet-backbonev1':
-        backbone = EfficientNetBackboneV1(output_downsample=opt.output_downsample).to(device=device)
-
+        backbone = BackboneV1(model="efficientnet", output_downsample=opt.output_downsample).to(device=device)
         heads = {}
         models = {}
+        feats = backbone.output_channels
         for scene in backbone_scenes:
-            heads[scene] = SceneHeadV1(num_landmarks=num_landmarks).to(device=device)
+            heads[scene] = SceneHeadV1(num_landmarks=num_landmarks, features=feats).to(device=device)
+            models[scene] = nn.Sequential(backbone, heads[scene])
+    elif opt.model == 'resnet-backbonev1':
+        backbone = BackboneV1(model="resnet", output_downsample=opt.output_downsample).to(device=device)
+        heads = {}
+        models = {}
+        feats = backbone.output_channels
+        for scene in backbone_scenes:
+            heads[scene] = SceneHeadV1(num_landmarks=num_landmarks, features=feats).to(device=device)
+            models[scene] = nn.Sequential(backbone, heads[scene])
+    elif opt.model == 'efficientnet-backbonev2':
+        backbone = BackboneV2(model="efficientnet", output_downsample=opt.output_downsample).to(device=device)
+        heads = {}
+        models = {}
+        feats = backbone.output_channels
+        for scene in backbone_scenes:
+            heads[scene] = SceneHeadV2(num_landmarks=num_landmarks, features=feats).to(device=device)
             models[scene] = nn.Sequential(backbone, heads[scene])
 
     optimizers = {}

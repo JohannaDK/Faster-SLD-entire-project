@@ -3,6 +3,7 @@
 #SBATCH --time=24:00
 #SBATCH --account=3dv
 #SBATCH --output=%j.out
+#SBATCH --cpus-per-task=2
 #SBATCH --gres=gpu:nvidia_geforce_gtx_1080ti:1
 
 . /etc/profile.d/modules.sh
