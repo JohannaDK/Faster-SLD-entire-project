@@ -1,0 +1,22 @@
+Running on host: studgpu-node09.inf.ethz.ch
+In directory: /cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src2
+Starting on: Fri May 3 00:03:31 CEST 2024
+SLURM_JOB_ID: 11801
+Using cache found in /home/owendu/.cache/torch/hub/facebookresearch_WSL-Images_main
+CUDA enabled
+  0%|          | 0/394 [00:00<?, ?it/s]/home/owendu/.local/lib/python3.10/site-packages/torch/functional.py:507: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape.cpp:3549.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+/home/owendu/.local/lib/python3.10/site-packages/torch/functional.py:507: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape.cpp:3549.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+/home/owendu/.local/lib/python3.10/site-packages/torch/functional.py:507: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape.cpp:3549.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+  0%|          | 0/394 [00:34<?, ?it/s]
+Traceback (most recent call last):
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src2/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src2/train.py", line 165, in train_patches
+    for p in head.parameters():
+NameError: name 'head' is not defined
+Experiment File: scene1_200-200_v10.txt
+Model Dir: /cluster/courses/3dv/data/team-25/Faster-SLD/data/outputs/scene1_200-200_v10/scene1-000-200
+finished at: Fri May 3 00:04:17 CEST 2024
