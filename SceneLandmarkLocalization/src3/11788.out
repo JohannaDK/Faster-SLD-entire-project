@@ -1,0 +1,2070 @@
+Running on host: studgpu-node09.inf.ethz.ch
+In directory: /cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3
+Starting on: Thu May 2 22:06:32 CEST 2024
+SLURM_JOB_ID: 11788
+/home/owendu/.local/lib/python3.10/site-packages/torch/utils/data/dataloader.py:558: UserWarning: This DataLoader will create 4 worker processes in total. Our suggested max number of worker in current system is 2, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  warnings.warn(_create_warning_msg(
+CUDA enabled
+  0%|          | 0/221 [00:00<?, ?it/s]/home/owendu/.local/lib/python3.10/site-packages/torch/functional.py:507: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape.cpp:3549.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+/home/owendu/.local/lib/python3.10/site-packages/torch/functional.py:507: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape.cpp:3549.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+/home/owendu/.local/lib/python3.10/site-packages/torch/functional.py:507: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape.cpp:3549.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+/home/owendu/.local/lib/python3.10/site-packages/torch/functional.py:507: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape.cpp:3549.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+/home/owendu/.local/lib/python3.10/site-packages/torch/functional.py:507: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape.cpp:3549.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 183, in train_patches
+    logging.info("forward pass", time.process_time()-t)
+Message: 'forward pass'
+Arguments: (2.6191649320000003,)
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 201, in train_patches
+    logging.info("back pass", time.process_time()-t)
+Message: 'back pass'
+Arguments: (2.580350148000001,)
+  0%|          | 1/221 [00:10<39:35, 10.80s/it]--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 183, in train_patches
+    logging.info("forward pass", time.process_time()-t)
+Message: 'forward pass'
+Arguments: (0.04720735899999973,)
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 201, in train_patches
+    logging.info("back pass", time.process_time()-t)
+Message: 'back pass'
+Arguments: (0.2433029059999985,)
+  1%|          | 2/221 [00:11<17:03,  4.67s/it]--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 183, in train_patches
+    logging.info("forward pass", time.process_time()-t)
+Message: 'forward pass'
+Arguments: (0.012898883000000083,)
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 201, in train_patches
+    logging.info("back pass", time.process_time()-t)
+Message: 'back pass'
+Arguments: (0.15952668800000147,)
+  1%|▏         | 3/221 [00:11<09:52,  2.72s/it]--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 183, in train_patches
+    logging.info("forward pass", time.process_time()-t)
+Message: 'forward pass'
+Arguments: (0.012249459999999601,)
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 201, in train_patches
+    logging.info("back pass", time.process_time()-t)
+Message: 'back pass'
+Arguments: (0.10559178899999999,)
+  2%|▏         | 4/221 [00:12<06:33,  1.81s/it]--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 183, in train_patches
+    logging.info("forward pass", time.process_time()-t)
+Message: 'forward pass'
+Arguments: (0.012740420000000086,)
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 201, in train_patches
+    logging.info("back pass", time.process_time()-t)
+Message: 'back pass'
+Arguments: (0.11841424099999998,)
+  2%|▏         | 5/221 [00:12<04:40,  1.30s/it]--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 183, in train_patches
+    logging.info("forward pass", time.process_time()-t)
+Message: 'forward pass'
+Arguments: (0.01289065499999964,)
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 201, in train_patches
+    logging.info("back pass", time.process_time()-t)
+Message: 'back pass'
+Arguments: (0.0928359780000001,)
+  3%|▎         | 6/221 [00:12<03:32,  1.01it/s]--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 183, in train_patches
+    logging.info("forward pass", time.process_time()-t)
+Message: 'forward pass'
+Arguments: (0.012199452999999139,)
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 201, in train_patches
+    logging.info("back pass", time.process_time()-t)
+Message: 'back pass'
+Arguments: (0.08173885100000078,)
+  3%|▎         | 7/221 [00:13<02:52,  1.24it/s]--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 183, in train_patches
+    logging.info("forward pass", time.process_time()-t)
+Message: 'forward pass'
+Arguments: (0.013379186000001653,)
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 201, in train_patches
+    logging.info("back pass", time.process_time()-t)
+Message: 'back pass'
+Arguments: (0.1493597210000015,)
+  4%|▎         | 8/221 [00:13<02:21,  1.51it/s]--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 183, in train_patches
+    logging.info("forward pass", time.process_time()-t)
+Message: 'forward pass'
+Arguments: (0.01436113799999994,)
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 201, in train_patches
+    logging.info("back pass", time.process_time()-t)
+Message: 'back pass'
+Arguments: (0.14553300700000094,)
+  4%|▍         | 9/221 [00:13<01:58,  1.78it/s]--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 183, in train_patches
+    logging.info("forward pass", time.process_time()-t)
+Message: 'forward pass'
+Arguments: (0.016878043000000176,)
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 201, in train_patches
+    logging.info("back pass", time.process_time()-t)
+Message: 'back pass'
+Arguments: (0.06260091399999901,)
+  5%|▍         | 10/221 [00:14<02:06,  1.66it/s]--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 183, in train_patches
+    logging.info("forward pass", time.process_time()-t)
+Message: 'forward pass'
+Arguments: (0.012041290999999177,)
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 201, in train_patches
+    logging.info("back pass", time.process_time()-t)
+Message: 'back pass'
+Arguments: (0.14157098499999954,)
+  5%|▍         | 11/221 [00:15<01:56,  1.81it/s]--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 183, in train_patches
+    logging.info("forward pass", time.process_time()-t)
+Message: 'forward pass'
+Arguments: (0.012269106999999835,)
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 201, in train_patches
+    logging.info("back pass", time.process_time()-t)
+Message: 'back pass'
+Arguments: (0.12509197599999844,)
+  5%|▌         | 12/221 [00:15<01:45,  1.98it/s]--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 183, in train_patches
+    logging.info("forward pass", time.process_time()-t)
+Message: 'forward pass'
+Arguments: (0.014863637999999568,)
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 201, in train_patches
+    logging.info("back pass", time.process_time()-t)
+Message: 'back pass'
+Arguments: (0.10687129000000084,)
+  6%|▌         | 13/221 [00:16<02:51,  1.21it/s]--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 183, in train_patches
+    logging.info("forward pass", time.process_time()-t)
+Message: 'forward pass'
+Arguments: (0.01417293000000086,)
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 201, in train_patches
+    logging.info("back pass", time.process_time()-t)
+Message: 'back pass'
+Arguments: (0.19190287500000025,)
+  6%|▋         | 14/221 [00:18<03:28,  1.01s/it]--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 183, in train_patches
+    logging.info("forward pass", time.process_time()-t)
+Message: 'forward pass'
+Arguments: (0.012807239999998998,)
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 201, in train_patches
+    logging.info("back pass", time.process_time()-t)
+Message: 'back pass'
+Arguments: (0.18926917199999949,)
+  7%|▋         | 15/221 [00:18<02:52,  1.19it/s]--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 183, in train_patches
+    logging.info("forward pass", time.process_time()-t)
+Message: 'forward pass'
+Arguments: (0.013713897000000586,)
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 201, in train_patches
+    logging.info("back pass", time.process_time()-t)
+Message: 'back pass'
+Arguments: (0.07542399499999952,)
+  7%|▋         | 16/221 [00:19<02:23,  1.43it/s]--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 183, in train_patches
+    logging.info("forward pass", time.process_time()-t)
+Message: 'forward pass'
+Arguments: (0.012385272999999586,)
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 201, in train_patches
+    logging.info("back pass", time.process_time()-t)
+Message: 'back pass'
+Arguments: (0.151146679,)
+  8%|▊         | 17/221 [00:19<02:08,  1.59it/s]--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 183, in train_patches
+    logging.info("forward pass", time.process_time()-t)
+Message: 'forward pass'
+Arguments: (0.011503875000000718,)
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 201, in train_patches
+    logging.info("back pass", time.process_time()-t)
+Message: 'back pass'
+Arguments: (0.2522097739999989,)
+  8%|▊         | 18/221 [00:21<03:15,  1.04it/s]--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 183, in train_patches
+    logging.info("forward pass", time.process_time()-t)
+Message: 'forward pass'
+Arguments: (0.01240140500000031,)
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 201, in train_patches
+    logging.info("back pass", time.process_time()-t)
+Message: 'back pass'
+Arguments: (0.1635698010000013,)
+  9%|▊         | 19/221 [00:21<02:40,  1.26it/s]--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 183, in train_patches
+    logging.info("forward pass", time.process_time()-t)
+Message: 'forward pass'
+Arguments: (0.012685547000000241,)
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 201, in train_patches
+    logging.info("back pass", time.process_time()-t)
+Message: 'back pass'
+Arguments: (0.08407972999999913,)
+  9%|▉         | 20/221 [00:22<02:18,  1.45it/s]--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 183, in train_patches
+    logging.info("forward pass", time.process_time()-t)
+Message: 'forward pass'
+Arguments: (0.013461722999998926,)
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 201, in train_patches
+    logging.info("back pass", time.process_time()-t)
+Message: 'back pass'
+Arguments: (0.11661310299999883,)
+ 10%|▉         | 21/221 [00:22<02:00,  1.65it/s]--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 183, in train_patches
+    logging.info("forward pass", time.process_time()-t)
+Message: 'forward pass'
+Arguments: (0.012657078000000155,)
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 201, in train_patches
+    logging.info("back pass", time.process_time()-t)
+Message: 'back pass'
+Arguments: (0.12084398600000057,)
+ 10%|▉         | 22/221 [00:24<03:04,  1.08it/s]--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 183, in train_patches
+    logging.info("forward pass", time.process_time()-t)
+Message: 'forward pass'
+Arguments: (0.01168940599999857,)
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 201, in train_patches
+    logging.info("back pass", time.process_time()-t)
+Message: 'back pass'
+Arguments: (0.12302502699999884,)
+ 10%|█         | 23/221 [00:24<02:32,  1.30it/s]--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 183, in train_patches
+    logging.info("forward pass", time.process_time()-t)
+Message: 'forward pass'
+Arguments: (0.012467402000000405,)
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 201, in train_patches
+    logging.info("back pass", time.process_time()-t)
+Message: 'back pass'
+Arguments: (0.07866520199999982,)
+ 11%|█         | 24/221 [00:25<02:09,  1.52it/s]--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 183, in train_patches
+    logging.info("forward pass", time.process_time()-t)
+Message: 'forward pass'
+Arguments: (0.013681539000000242,)
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 201, in train_patches
+    logging.info("back pass", time.process_time()-t)
+Message: 'back pass'
+Arguments: (0.09083444200000024,)
+ 11%|█▏        | 25/221 [00:25<01:51,  1.75it/s]--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 183, in train_patches
+    logging.info("forward pass", time.process_time()-t)
+Message: 'forward pass'
+Arguments: (0.012411093999999068,)
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 201, in train_patches
+    logging.info("back pass", time.process_time()-t)
+Message: 'back pass'
+Arguments: (0.0977697329999998,)
+ 12%|█▏        | 26/221 [00:27<03:03,  1.06it/s]--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 183, in train_patches
+    logging.info("forward pass", time.process_time()-t)
+Message: 'forward pass'
+Arguments: (0.013091147999999109,)
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 201, in train_patches
+    logging.info("back pass", time.process_time()-t)
+Message: 'back pass'
+Arguments: (0.12500248000000092,)
+ 12%|█▏        | 27/221 [00:27<02:32,  1.28it/s]--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 183, in train_patches
+    logging.info("forward pass", time.process_time()-t)
+Message: 'forward pass'
+Arguments: (0.012749077000000497,)
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 201, in train_patches
+    logging.info("back pass", time.process_time()-t)
+Message: 'back pass'
+Arguments: (0.09325888399999904,)
+ 13%|█▎        | 28/221 [00:28<02:12,  1.46it/s]--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 183, in train_patches
+    logging.info("forward pass", time.process_time()-t)
+Message: 'forward pass'
+Arguments: (0.01307722099999964,)
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 201, in train_patches
+    logging.info("back pass", time.process_time()-t)
+Message: 'back pass'
+Arguments: (0.09213673300000025,)
+ 13%|█▎        | 29/221 [00:28<02:00,  1.60it/s]--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 183, in train_patches
+    logging.info("forward pass", time.process_time()-t)
+Message: 'forward pass'
+Arguments: (0.011791626000000832,)
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 201, in train_patches
+    logging.info("back pass", time.process_time()-t)
+Message: 'back pass'
+Arguments: (0.16347574399999942,)
+ 14%|█▎        | 30/221 [00:30<03:10,  1.00it/s]--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 183, in train_patches
+    logging.info("forward pass", time.process_time()-t)
+Message: 'forward pass'
+Arguments: (0.012946578000001097,)
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 201, in train_patches
+    logging.info("back pass", time.process_time()-t)
+Message: 'back pass'
+Arguments: (0.1399053479999992,)
+ 14%|█▍        | 31/221 [00:30<02:36,  1.22it/s]--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 183, in train_patches
+    logging.info("forward pass", time.process_time()-t)
+Message: 'forward pass'
+Arguments: (0.012348081000000732,)
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 201, in train_patches
+    logging.info("back pass", time.process_time()-t)
+Message: 'back pass'
+Arguments: (0.07220922199999791,)
+ 14%|█▍        | 32/221 [00:31<02:11,  1.43it/s]--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 183, in train_patches
+    logging.info("forward pass", time.process_time()-t)
+Message: 'forward pass'
+Arguments: (0.011738059000002465,)
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 201, in train_patches
+    logging.info("back pass", time.process_time()-t)
+Message: 'back pass'
+Arguments: (0.10128981900000156,)
+ 15%|█▍        | 33/221 [00:31<01:58,  1.58it/s]--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 183, in train_patches
+    logging.info("forward pass", time.process_time()-t)
+Message: 'forward pass'
+Arguments: (0.01179202199999807,)
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 201, in train_patches
+    logging.info("back pass", time.process_time()-t)
+Message: 'back pass'
+Arguments: (0.10438771500000144,)
+ 15%|█▌        | 34/221 [00:33<03:11,  1.02s/it]--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 183, in train_patches
+    logging.info("forward pass", time.process_time()-t)
+Message: 'forward pass'
+Arguments: (0.01174750099999855,)
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 201, in train_patches
+    logging.info("back pass", time.process_time()-t)
+Message: 'back pass'
+Arguments: (0.13778708399999928,)
+ 16%|█▌        | 35/221 [00:34<02:36,  1.19it/s]--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 183, in train_patches
+    logging.info("forward pass", time.process_time()-t)
+Message: 'forward pass'
+Arguments: (0.01227282700000032,)
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 201, in train_patches
+    logging.info("back pass", time.process_time()-t)
+Message: 'back pass'
+Arguments: (0.13991643099999962,)
+ 16%|█▋        | 36/221 [00:34<02:09,  1.42it/s]--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 183, in train_patches
+    logging.info("forward pass", time.process_time()-t)
+Message: 'forward pass'
+Arguments: (0.011517968999999795,)
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 201, in train_patches
+    logging.info("back pass", time.process_time()-t)
+Message: 'back pass'
+Arguments: (0.08081740600000131,)
+ 17%|█▋        | 37/221 [00:35<01:53,  1.62it/s]--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 183, in train_patches
+    logging.info("forward pass", time.process_time()-t)
+Message: 'forward pass'
+Arguments: (0.011638377000000588,)
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 201, in train_patches
+    logging.info("back pass", time.process_time()-t)
+Message: 'back pass'
+Arguments: (0.21419602699999984,)
+ 17%|█▋        | 38/221 [00:36<02:51,  1.07it/s]--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 183, in train_patches
+    logging.info("forward pass", time.process_time()-t)
+Message: 'forward pass'
+Arguments: (0.01223619900000017,)
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 201, in train_patches
+    logging.info("back pass", time.process_time()-t)
+Message: 'back pass'
+Arguments: (0.16798881100000074,)
+ 18%|█▊        | 39/221 [00:37<02:20,  1.29it/s]--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 183, in train_patches
+    logging.info("forward pass", time.process_time()-t)
+Message: 'forward pass'
+Arguments: (0.011898450000000338,)
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 201, in train_patches
+    logging.info("back pass", time.process_time()-t)
+Message: 'back pass'
+Arguments: (0.11747035499999825,)
+ 18%|█▊        | 40/221 [00:37<02:01,  1.49it/s]--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 183, in train_patches
+    logging.info("forward pass", time.process_time()-t)
+Message: 'forward pass'
+Arguments: (0.012602121000000466,)
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 201, in train_patches
+    logging.info("back pass", time.process_time()-t)
+Message: 'back pass'
+Arguments: (0.11565598099999974,)
+ 19%|█▊        | 41/221 [00:37<01:48,  1.65it/s]--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 183, in train_patches
+    logging.info("forward pass", time.process_time()-t)
+Message: 'forward pass'
+Arguments: (0.011305973000002467,)
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 201, in train_patches
+    logging.info("back pass", time.process_time()-t)
+Message: 'back pass'
+Arguments: (0.29365411899999927,)
+ 19%|█▉        | 42/221 [00:39<02:44,  1.09it/s]--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 183, in train_patches
+    logging.info("forward pass", time.process_time()-t)
+Message: 'forward pass'
+Arguments: (0.012011873999998812,)
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 201, in train_patches
+    logging.info("back pass", time.process_time()-t)
+Message: 'back pass'
+Arguments: (0.16258399200000184,)
+ 19%|█▉        | 43/221 [00:40<02:14,  1.32it/s]--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 183, in train_patches
+    logging.info("forward pass", time.process_time()-t)
+Message: 'forward pass'
+Arguments: (0.012915840000001566,)
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 201, in train_patches
+    logging.info("back pass", time.process_time()-t)
+Message: 'back pass'
+Arguments: (0.1015302879999993,)
+ 20%|█▉        | 44/221 [00:40<01:56,  1.52it/s]--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 183, in train_patches
+    logging.info("forward pass", time.process_time()-t)
+Message: 'forward pass'
+Arguments: (0.01271299700000128,)
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 201, in train_patches
+    logging.info("back pass", time.process_time()-t)
+Message: 'back pass'
+Arguments: (0.06709516800000159,)
+ 20%|██        | 45/221 [00:40<01:44,  1.68it/s]--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 183, in train_patches
+    logging.info("forward pass", time.process_time()-t)
+Message: 'forward pass'
+Arguments: (0.011626699000000684,)
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 201, in train_patches
+    logging.info("back pass", time.process_time()-t)
+Message: 'back pass'
+Arguments: (0.09574793199999831,)
+ 21%|██        | 46/221 [00:42<02:21,  1.24it/s]--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 183, in train_patches
+    logging.info("forward pass", time.process_time()-t)
+Message: 'forward pass'
+Arguments: (0.01302190100000189,)
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 201, in train_patches
+    logging.info("back pass", time.process_time()-t)
+Message: 'back pass'
+Arguments: (0.06693355399999845,)
+ 21%|██▏       | 47/221 [00:42<02:03,  1.41it/s]--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 183, in train_patches
+    logging.info("forward pass", time.process_time()-t)
+Message: 'forward pass'
+Arguments: (0.016411070000000194,)
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 201, in train_patches
+    logging.info("back pass", time.process_time()-t)
+Message: 'back pass'
+Arguments: (0.12378882799999857,)
+ 22%|██▏       | 48/221 [00:43<01:47,  1.61it/s]--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 183, in train_patches
+    logging.info("forward pass", time.process_time()-t)
+Message: 'forward pass'
+Arguments: (0.01224478299999987,)
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 201, in train_patches
+    logging.info("back pass", time.process_time()-t)
+Message: 'back pass'
+Arguments: (0.06410518299999879,)
+ 22%|██▏       | 49/221 [00:43<01:37,  1.76it/s]--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 183, in train_patches
+    logging.info("forward pass", time.process_time()-t)
+Message: 'forward pass'
+Arguments: (0.016090704999999872,)
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 201, in train_patches
+    logging.info("back pass", time.process_time()-t)
+Message: 'back pass'
+Arguments: (0.23944036800000035,)
+ 23%|██▎       | 50/221 [00:45<02:35,  1.10it/s]--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 183, in train_patches
+    logging.info("forward pass", time.process_time()-t)
+Message: 'forward pass'
+Arguments: (0.012537396999999117,)
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 201, in train_patches
+    logging.info("back pass", time.process_time()-t)
+Message: 'back pass'
+Arguments: (0.13249344800000173,)
+ 23%|██▎       | 51/221 [00:45<02:09,  1.32it/s]--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 183, in train_patches
+    logging.info("forward pass", time.process_time()-t)
+Message: 'forward pass'
+Arguments: (0.012536967999999149,)
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 201, in train_patches
+    logging.info("back pass", time.process_time()-t)
+Message: 'back pass'
+Arguments: (0.120995293,)
+ 24%|██▎       | 52/221 [00:46<01:49,  1.54it/s]--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 183, in train_patches
+    logging.info("forward pass", time.process_time()-t)
+Message: 'forward pass'
+Arguments: (0.011941779999997237,)
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 201, in train_patches
+    logging.info("back pass", time.process_time()-t)
+Message: 'back pass'
+Arguments: (0.06417362900000256,)
+ 24%|██▍       | 53/221 [00:46<01:39,  1.69it/s]--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 183, in train_patches
+    logging.info("forward pass", time.process_time()-t)
+Message: 'forward pass'
+Arguments: (0.012387098999997903,)
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 201, in train_patches
+    logging.info("back pass", time.process_time()-t)
+Message: 'back pass'
+Arguments: (0.1438294190000029,)
+ 24%|██▍       | 54/221 [00:48<02:37,  1.06it/s]--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 183, in train_patches
+    logging.info("forward pass", time.process_time()-t)
+Message: 'forward pass'
+Arguments: (0.011970330000000473,)
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 201, in train_patches
+    logging.info("back pass", time.process_time()-t)
+Message: 'back pass'
+Arguments: (0.2450886600000004,)
+ 25%|██▍       | 55/221 [00:48<02:07,  1.30it/s]--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 183, in train_patches
+    logging.info("forward pass", time.process_time()-t)
+Message: 'forward pass'
+Arguments: (0.01162962699999781,)
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 201, in train_patches
+    logging.info("back pass", time.process_time()-t)
+Message: 'back pass'
+Arguments: (0.16062170800000075,)
+ 25%|██▌       | 56/221 [00:49<01:50,  1.50it/s]--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 183, in train_patches
+    logging.info("forward pass", time.process_time()-t)
+Message: 'forward pass'
+Arguments: (0.012275989999999126,)
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src3/train.py", line 201, in train_patches
+    logging.info("back pass", time.process_time()-t)
+Message: 'back pass'
+Arguments: (0.08926788899999849,)
+slurmstepd: error: *** JOB 11788 ON studgpu-node09 CANCELLED AT 2024-05-02T22:07:28 ***

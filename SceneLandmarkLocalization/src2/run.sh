@@ -4,7 +4,8 @@
 #SBATCH --account=3dv
 #SBATCH --output=%j.out
 #SBATCH --mincpus=2
-#SBATCH --gpus=1
+#SBATCH --gpus=4
+#SBATCH --mem-per-cpu=30000MB
 
 . /etc/profile.d/modules.sh
 module add cuda/11.8

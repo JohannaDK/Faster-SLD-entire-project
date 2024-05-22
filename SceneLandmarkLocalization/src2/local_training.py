@@ -19,6 +19,7 @@ def launch_training():
     cmd += ' --output_folder %s' % (Args.model_dir)
     cmd += ' --landmark_indices %d' % (Args.landmark_index_start)
     cmd += ' --landmark_indices %d' % (Args.landmark_index_stop)
+    cmd += ' --pretrained_path %s' % (Args.pretrained_path)
     os.system(cmd)
 
 if __name__ == '__main__':
@@ -62,6 +63,10 @@ if __name__ == '__main__':
     parser.add_argument(
         '--num_epochs', type=int, required=True,
         help='the number of epochs used for training.')
+    parser.add_argument(
+        '--pretrained_path', type=str, required=True,
+        help='path for pretrained bb/model'
+    )
     Args = parser.parse_args()
 
     # Write the experiment file

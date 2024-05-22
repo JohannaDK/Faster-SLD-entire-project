@@ -7,7 +7,7 @@ import os
 def _make_encoder(use_pretrained, model, exportable=True, output_downsample=4):
 
     # TODO need to change path to whatever it is on cluster
-    if model == "efficientnet":
+    if "efficientnet" in model:
         pretrained = _make_pretrained_efficientnet_lite0(use_pretrained, exportable=exportable)
         pretrained = torch.load('pretrained_efficientnetlite0.net')
         channels = 320
@@ -17,7 +17,7 @@ def _make_encoder(use_pretrained, model, exportable=True, output_downsample=4):
             pretrained.layer3[0][0].conv_dw.stride = (1, 1)
         if output_downsample <= 4:
             pretrained.layer4[0][0].conv_dw.stride = (1, 1)
-    elif model == "resnet":
+    elif "resnet" in model:
         pretrained = _make_pretrained_resnext101_wsl(None)
         channels = 2048
         if output_downsample == 8:

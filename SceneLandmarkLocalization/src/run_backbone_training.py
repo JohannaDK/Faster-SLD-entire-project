@@ -15,43 +15,43 @@ if __name__ == '__main__':
 
     # Specify a version number which can be incremented when training multiple variants on 
     # the same scene.
-    version_no = 2
+    version_no = 1
     
     # Specify the scene name
     # TODO: if we use indoor6, then scene name must correspond to one of the indoor6 scene names
     # for now, can leave empty, only needed for indoor6 dataloader
-    scene_name = 'effnet-bb-v2'
+    scene_name = '5scenes_effnet'
 
-    model = 'efficientnet-backbonev2'
+    model = 'effnet-bbv2headv3'
 
     # Specify the landmark file
     # TODO: need file with landmarks corresponding to the scenes we choose (generate using landmark_selection)
-    landmark_config = 'landmarks/landmarks-200v9'
+    landmark_config = 'landmarks/landmarks-100v9'
 
     # Specify the visibility file
     # TODO: same as landmark_config
-    visibility_config = 'landmarks/visibility-200v9_depth_normal'
+    visibility_config = 'landmarks/visibility-100v9_depth_normal'
 
     # Specify the batch size for the minibatches used for training.
     # TODO: in general hyperparameters
-    training_batch_size = 8
+    training_batch_size = 16
     
     # Specify the downsample factor for the output heatmap.
     output_downsample = 8
     
     # Specify the number of epochs to use during training.
-    num_epochs = 200
+    num_epochs = 150
 
     # Specify the number of landmarks and the block size. The number of landmarks should be 
     # identical to the number of landmarks in the landmark file specified for the 
     # landmark_config parameter.
-    num_landmarks = 200
+    num_landmarks = 100
 
     # Specify the number of landmarks that will be present in each subset when the set of 
     # landmarks is partitioned into mutually exclusive subsets. The value specified here 
     # should exactly divide the landmark count. For example, when num_landmarks = 1000 and 
     # block_size = 125, we get 1000/125 = 8 subsets of landmarks.
-    block_size = 200
+    block_size = 100
 
     # Specify which subset you want to train the model for. For example, when 
     # num_landmarks = 1000 and block_size = 125, then subset_index = 0 indicates that the 

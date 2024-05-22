@@ -1,0 +1,279 @@
+[33mcommit cb1d86f982d15c462e6a1d04c730a05d5efdd0a6[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;31morigin/3dv24[m[33m)[m
+Author: maxkazmsft <maxkaz@microsoft.com>
+Date:   Mon Feb 26 13:47:17 2024 -0500
+
+    support for Mac MPS, plus Linux and Windows CPU (#19)
+    
+    * first stab at supporting Mac, Linux and Windows - need to test on Windows
+    
+    * minor text comment
+    
+    * tested on Windows on CPU and added a few doc tweaks
+
+[33mcommit 3bbeb8d1d46a1bdb5c694d33b602403659675b38[m[33m ([m[1;31morigin/user/maxkaz/test[m[33m)[m
+Author: Sudipta Sinha <sudipsin@microsoft.com>
+Date:   Mon Jan 29 09:30:30 2024 -0800
+
+    Update.
+
+[33mcommit 0e30b55ebd460285f4876c0ff3da61468755cea2[m
+Author: Sudipta Sinha <sudipsin@microsoft.com>
+Date:   Sun Jan 28 13:09:01 2024 -0800
+
+    update
+
+[33mcommit 0efa2662e40d13c9b2f879b7f1b01807983f59d4[m
+Author: Sudipta Sinha <sudipsin@microsoft.com>
+Date:   Wed Jan 24 17:29:16 2024 -0800
+
+    updated links to datasets, pretrained models on google drive.
+
+[33mcommit e92ecc267241cad270d92a5d9ccd8cb41c96fbb8[m
+Author: Sudipta Sinha <sudipsin@microsoft.com>
+Date:   Wed Jan 24 16:27:02 2024 -0800
+
+    Checking in the source code and documentation for our 3DV 2024 paper.
+
+[33mcommit 11766f7715dd4b46d32d3c2201c8d4028a82b3d7[m[33m ([m[1;31morigin/main[m[33m)[m
+Merge: 508fb47 276b71f
+Author: Sudipta N. Sinha <snsinha@users.noreply.github.com>
+Date:   Fri May 5 07:30:00 2023 +0530
+
+    Merge pull request #16 from microsoft/tien/update_readme
+    
+    Missing colmap link
+
+[33mcommit 276b71f02f1a63fa4c15928e93b69f6f50c11f22[m[33m ([m[1;31morigin/tien/update_readme[m[33m)[m
+Author: Tien Do <tiendo2411@gmail.com>
+Date:   Thu May 4 10:10:48 2023 -0500
+
+    Missing colmap link
+
+[33mcommit 508fb47c6e5c095d840d7a8d7cec06643c2ce27f[m
+Merge: 534de6c 12e9e0c
+Author: Tien Do <tiendo2411@gmail.com>
+Date:   Thu Mar 30 00:37:47 2023 -0500
+
+    Merge pull request #15 from microsoft/tien/landmark_selection
+    
+    added landmark selection code
+
+[33mcommit 12e9e0c0f40b2abddbf3a80b983c62ded5040bbd[m[33m ([m[1;31morigin/tien/landmark_selection[m[33m)[m
+Author: tien-d <tiendo2411@gmail.com>
+Date:   Wed Mar 29 02:35:33 2023 -0500
+
+    added landmark selection code
+
+[33mcommit 534de6c26920c1ca3bd2fa682515dfe3e390f721[m
+Merge: cb357f8 a265917
+Author: Tien Do <tiendo2411@gmail.com>
+Date:   Sat Jan 7 17:05:58 2023 -0600
+
+    Merge pull request #9 from microsoft/tien/clean_pnp_file
+    
+    Clean up pnp
+
+[33mcommit a265917d5bf1bc683a269c4175df35844d7da34a[m
+Author: tien-d <tiendo2411@gmail.com>
+Date:   Sat Jan 7 15:39:56 2023 -0600
+
+    some refactor
+
+[33mcommit cb357f846c8e223f2c112040bed051a95367a770[m
+Merge: c5a46e2 7901696
+Author: Tien Do <tiendo2411@gmail.com>
+Date:   Thu Jan 5 10:07:49 2023 -0800
+
+    Merge pull request #8 from microsoft/tien/code_release
+    
+    code and instructions
+
+[33mcommit 7901696e7ad30f69e7a7a04deff9a24970051601[m
+Author: Tien Do <tdo@microsoft.com>
+Date:   Thu Jan 5 10:00:39 2023 -0800
+
+    address comments
+
+[33mcommit 87cce4f9df7deec152032f0bfbab9794e18cf6fa[m
+Author: tien-d <tiendo2411@gmail.com>
+Date:   Tue Jan 3 02:59:31 2023 -0600
+
+    code and instructions
+
+[33mcommit c5a46e2a433415c2c5e1468c85746fdf4ece26a8[m
+Merge: cf3a319 6efde05
+Author: Tien Do <tiendo2411@gmail.com>
+Date:   Sat Oct 1 18:35:05 2022 -0700
+
+    Merge pull request #6 from microsoft/tien/update_video_data
+    
+    Tien/update video data
+
+[33mcommit 6efde056e2de14be17974099495dca9f5af0ffba[m
+Author: Tien Do <tiendo2411@gmail.com>
+Date:   Sat Oct 1 13:06:11 2022 -0700
+
+    Address comments
+
+[33mcommit 94505411e7e5b4bb34bd61a4f5768e0e9133de99[m
+Author: Tien Do <tiendo2411@gmail.com>
+Date:   Sat Oct 1 12:53:32 2022 -0700
+
+    Add files via upload
+
+[33mcommit 6c874fcd1456415b37ba53ec94facf4783ddf170[m
+Author: Tien Do <tiendo2411@gmail.com>
+Date:   Sat Oct 1 11:49:50 2022 -0700
+
+    Update README.md
+
+[33mcommit 888c81f5274de413b04fcd78e6c0f95a3056ddad[m
+Author: Tien Do <tiendo2411@gmail.com>
+Date:   Fri Sep 30 14:58:31 2022 -0700
+
+    Update README.md
+    
+    Update results for new scenes.
+
+[33mcommit b086e5c6468e35a35b65545320323bde6b705995[m
+Author: Tien Do <tiendo2411@gmail.com>
+Date:   Fri Sep 30 14:42:58 2022 -0700
+
+    Add files via upload
+    
+    Add tables
+
+[33mcommit a5502dc56323855fc480149abb48c56333fe5f8f[m
+Author: Tien Do <tiendo2411@gmail.com>
+Date:   Fri Sep 30 08:03:14 2022 -0700
+
+    Update README.md
+
+[33mcommit e141d9b65c2a66612abe78c477293551b06ef860[m
+Author: tien-d <tiendo2411@gmail.com>
+Date:   Tue Jul 19 10:59:30 2022 -0500
+
+    add video
+
+[33mcommit 8707f68fcc384030e760869952f6d79917436e6a[m
+Author: tien-d <tiendo2411@gmail.com>
+Date:   Tue Jul 19 10:59:19 2022 -0500
+
+    add video
+
+[33mcommit ce8a9efba742eaea25c35858631cdcc7d0bd87d7[m
+Author: tien-d <tiendo2411@gmail.com>
+Date:   Tue Jul 19 10:38:12 2022 -0500
+
+    add video
+
+[33mcommit cf3a3194ca2be96a82e45c854ae1f52ccebf43cb[m
+Merge: 7de09fe 24366c3
+Author: Tien Do <tiendo2411@gmail.com>
+Date:   Wed Apr 6 20:01:11 2022 -0500
+
+    Merge pull request #4 from microsoft/tien/readme_init
+    
+    add scene1, scene3 download links
+
+[33mcommit 24366c364255b2c9e3217972d1acb56350a18a01[m
+Author: tien-d <tiendo2411@gmail.com>
+Date:   Mon Apr 4 18:19:29 2022 -0500
+
+    rm scene4
+
+[33mcommit a08987152af08927ee064ef33db70cbb06f7f45c[m
+Author: tien-d <tiendo2411@gmail.com>
+Date:   Mon Apr 4 09:55:07 2022 -0500
+
+    add scene1, scene3, and update the paper pdf with page numbers
+
+[33mcommit 7de09fe4aec6b8d008df529ed7a6d30722acc640[m
+Merge: 2b9c529 0b37101
+Author: Tien Do <tiendo2411@gmail.com>
+Date:   Tue Mar 29 01:32:58 2022 -0500
+
+    Merge pull request #3 from microsoft/tien/readme_init
+    
+    missing comma
+
+[33mcommit 0b37101db260dd246ac4dc4815856e953a173dcd[m
+Author: tien-d <tiendo2411@gmail.com>
+Date:   Tue Mar 29 01:31:19 2022 -0500
+
+    missing comma
+
+[33mcommit 2b9c5295fe01eb890a16a1bb6d34db93b22f45ff[m
+Merge: 556136f 893eb33
+Author: Tien Do <tiendo2411@gmail.com>
+Date:   Tue Mar 29 01:24:07 2022 -0500
+
+    Merge pull request #2 from microsoft/tien/readme_init
+    
+    Tien/readme init
+
+[33mcommit 893eb332a77e233d1dbe0aeae8ca19f71bac0956[m
+Author: tien-d <tiendo2411@gmail.com>
+Date:   Tue Mar 29 01:19:18 2022 -0500
+
+    colmap, 7scenes links
+
+[33mcommit f3e6dd89e2cdf4d86602362960cd17e715a818d4[m
+Author: tien-d <tiendo2411@gmail.com>
+Date:   Tue Mar 29 01:16:57 2022 -0500
+
+    minor change
+
+[33mcommit 8ed725d28f552803302c5d2e8607e89f143c456d[m
+Author: tien-d <tiendo2411@gmail.com>
+Date:   Tue Mar 29 01:14:00 2022 -0500
+
+    add paper, links
+
+[33mcommit e1bc9326a773449cb06c1c181fb1081a3e8120af[m
+Author: tien-d <tiendo2411@gmail.com>
+Date:   Mon Mar 28 00:17:54 2022 -0500
+
+    remove long abstract, related to videos, edit sfm figure, and add bibtex
+
+[33mcommit 7869443590cb4a409b652fe1770f990cef496787[m
+Author: tien-d <tiendo2411@gmail.com>
+Date:   Sun Mar 27 17:06:36 2022 -0500
+
+    abstract and data sections
+
+[33mcommit 556136f516dea90fca5b792687b50d954c24dbf0[m
+Merge: 8f6f2ed eb2e63c
+Author: omiksik <ondra.miksik@gmail.com>
+Date:   Fri Mar 25 17:43:36 2022 +0100
+
+    Merge pull request #1 from microsoft/user/onmiksik/codeowners
+    
+    Create codeowners
+
+[33mcommit eb2e63c8829dba233db6b0961c46c500799752b9[m
+Author: omiksik <ondra.miksik@gmail.com>
+Date:   Fri Mar 25 17:42:57 2022 +0100
+
+    Create codeowners
+
+[33mcommit 8f6f2ed4ee144d6da2b822e0a41888b300ad28af[m
+Author: Microsoft Open Source <microsoftopensource@users.noreply.github.com>
+Date:   Tue Mar 22 12:12:08 2022 -0700
+
+    SECURITY.md committed
+
+[33mcommit 16274ea4a9ab54484eefb510575a5b319817f9c7[m
+Author: Microsoft Open Source <microsoftopensource@users.noreply.github.com>
+Date:   Tue Mar 22 12:12:07 2022 -0700
+
+    README.md committed
+
+[33mcommit 48e41c6313687a02ee51e731e9650b08ab1961a3[m
+Author: Microsoft Open Source <microsoftopensource@users.noreply.github.com>
+Date:   Tue Mar 22 12:12:06 2022 -0700
+
+    LICENSE-CODE committed
+
+[33mcommit 4a5e7a8c74d8cc315951f6248d4a2ec80778138d[m
+Author: Microsoft Open Source <microsoftopensource@users.noreply.github.com>

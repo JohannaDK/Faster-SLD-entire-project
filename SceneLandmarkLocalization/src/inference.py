@@ -118,27 +118,27 @@ def inference(opt, minimal_tight_thr=1e-2, opt_tight_thr=5e-3, mode='test'):
     cnns = []
     nLandmarks = opt.landmark_indices
     num_landmarks = opt.landmark_indices[-1] - opt.landmark_indices[0]
-    print("num", num_landmarks)
 
     for idx, pretrained_model in enumerate(PRETRAINED_MODEL):
         if opt.model == 'efficientnet-backbonev1':
-            bb = BackboneV1(model="efficientnet",output_downsample=opt.output_downsample).to(device=device)
+            bb = BackboneV1(model='efficientnet').to(device=device)
             feats = bb.output_channels
             head = SceneHeadV1(num_landmarks=num_landmarks, features=feats).to(device=device)
             cnn = nn.Sequential(bb,head).to(device=device)
-        elif opt.model == 'efficientnet':
-            cnn = EfficientNetSLD(num_landmarks=num_landmarks, output_downsample=opt.output_downsample).to(device=device)
-        elif opt.model =='resnet-backbonev1':
-            bb = BackboneV1(model="resnet",output_downsample=opt.output_downsample).to(device=device)
+        elif opt.model == 'resnet-backbonev1':
+            bb = BackboneV1(model='resnet').to(device=device)
             feats = bb.output_channels
             head = SceneHeadV1(num_landmarks=num_landmarks, features=feats).to(device=device)
             cnn = nn.Sequential(bb,head).to(device=device)
-        elif opt.model=='efficientnet-backbonev2':
-            bb = BackboneV2(model="efficientnet",output_downsample=opt.output_downsample).to(device=device)
+        elif opt.model == 'efficientnet-backbonev2':
+            bb = BackboneV2(model='efficientnet').to(device=device)
             feats = bb.output_channels
             head = SceneHeadV2(num_landmarks=num_landmarks, features=feats).to(device=device)
             cnn = nn.Sequential(bb,head).to(device=device)
-            
+        elif opt.model == 'resnet-bbv2headv3':
+            feats = 512
+            cnn = MultiHeadModel(bb_model="resnetv2",head_version="v3",scenes=[opt.scene_id],features=feats,num_landmarks=num_landmarks)
+
         cnn.load_state_dict(torch.load(pretrained_model))
         cnn = cnn.to(device=device)
         cnn.eval()
@@ -196,8 +196,8 @@ def inference(opt, minimal_tight_thr=1e-2, opt_tight_thr=5e-3, mode='test'):
                 # pred_heatmap *= tmp
                 #
                 # w^{2.5}
-                # pred_heatmap *= tmp
                 # pred_heatmap *= pred_heatmap
+                # pred_heatmap *= tmp
 
                 # w^2
                 pred_heatmap *= pred_heatmap
@@ -297,7 +297,7 @@ def inference_landmark_stats(opt, mode='test'):
                            visibility_config=opt.visibility_config,
                            skip_image_index=1)
 
-    test_dataloader = DataLoader(dataset=test_dataset, num_workers=1, batch_size=1, shuffle=False, pin_memory=True)
+    test_dataloader = DataLoader(dataset=test_dataset, num_workers=2, batch_size=1, shuffle=False, pin_memory=True)
 
     num_landmarks = test_dataset.landmark.shape[1]
 

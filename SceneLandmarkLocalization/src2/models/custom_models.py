@@ -165,18 +165,18 @@ class MultiHeadModel(nn.Module):
         self.single_scene = len(scenes) == 1
         self.scene = scenes[0]
         # bandaid fix
-        scenes = ["scene2a","scene4a","scene6"]
+        scenes = ["scene1","scene2a","scene4a","scene5","scene6"]
 
         heads = {}
         if "v3" == head_version:
             for scene in scenes:
-                heads[scene] = SceneHeadV3(features=features)
+                heads[scene] = SceneHeadV3(features=features, num_landmarks=num_landmarks)
         elif "v2" == head_version:
             for scene in scenes:
-                heads[scene] = SceneHeadV2(features=features)
+                heads[scene] = SceneHeadV2(features=features, num_landmarks=num_landmarks)
         elif "v1" == head_version:
             for scene in scenes:
-                heads[scene] = SceneHeadV1(features=features)
+                heads[scene] = SceneHeadV1(features=features, num_landmarks=num_landmarks)
 
         self.heads = nn.ModuleDict(heads)
 
@@ -252,6 +252,34 @@ class SceneHeadV3(nn.Module):
 
         return z1
 
+class SceneHeadV4(nn.Module):
+    """
+    Scene Head V4, more 1x1 convolutions
+    """
+    def __init__(self, path=None, num_landmarks=200, features=320):
+
+        super(SceneHeadV4, self).__init__()
+
+        downsample = nn.Sequential(
+            nn.Conv2d(features, 512, 1),
+            nn.BatchNorm2d(512)
+        )
+
+        self.heatmap_outputs_res1 = nn.Sequential(
+            ResidualBlock(features, 512, downsample=downsample),
+            ResidualBlock(512, 512, downsample=None),
+            nn.Conv2d(512,num_landmarks,1)
+        )
+
+        if path:
+            self.load(path)
+
+    def forward(self, x):
+
+        z1 = self.heatmap_outputs_res1(x)
+
+        return z1
+
 class ACEBlock(nn.Module):
     def __init__(self, input_channels=2048, head_channels=512):
         super(ACEBlock, self).__init__()
@@ -315,6 +343,8 @@ class FrozenBackBoneModel(nn.Module):
 
         if head_model == "ace":
             self.head = ACEHead()
+        elif head_model == "simple":
+            self.head = SceneHeadV1(features=2048,num_landmarks=200)
 
         if path:
             self.load(path)

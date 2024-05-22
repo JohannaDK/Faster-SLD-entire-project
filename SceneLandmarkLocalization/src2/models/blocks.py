@@ -19,15 +19,21 @@ def _make_encoder(use_pretrained, model, exportable=True, output_downsample=4):
             pretrained.layer4[0][0].conv_dw.stride = (1, 1)
     elif "resnet" in model:
         pretrained = _make_pretrained_resnext101_wsl(None)
-        channels = 2048
+        channels = 512
         if output_downsample == 8:
-            #upsample by 2
-            pretrained.layer3[0].conv2.stride=(1,1)
-            pretrained.layer3[0].downsample[0].stride=(1,1)
-            #upsample by 2
-            pretrained.layer4[0].conv2.stride=(1,1)
-            pretrained.layer4[0].downsample[0].stride=(1,1)
-
+            # upsample by 2
+            pretrained.layer3[0].conv2.stride=(1, 1) 
+            pretrained.layer3[0].downsample[0].stride=(1, 1)
+            # upsample by 2
+            pretrained.layer4[0].conv2.stride=(1, 1)
+            pretrained.layer4[0].downsample[0].stride=(1, 1)
+            # reduce channels
+            pretrained.layer4[2].conv3 = nn.Conv2d(2048, 512, kernel_size=(1,1), stride=(1,1), bias=False)
+            pretrained.layer4[2].bn3 = nn.BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            pretrained.layer4[2].downsample = nn.Sequential(
+                nn.Conv2d(2048,512, kernel_size=(1, 1), stride=(1, 1), bias=False),
+                nn.BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            )
     return pretrained, channels
 
 
