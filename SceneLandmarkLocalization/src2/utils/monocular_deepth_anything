@@ -1,0 +1,25 @@
+#DESKTOP
+import matplotlib.pyplot as plt
+import numpy as np
+import matplotlib
+import transformers
+import requests
+
+from PIL import Image
+from transformers import pipeline
+
+
+#print("Hello world")
+
+pipe = pipeline(task="depth-estimation", model="LiheYoung/depth-anything-small-hf") #ISSUE WITH THIS
+
+url = 'http://images.cocodataset.org/val2017/000000039769.jpg'
+image = Image.open(requests.get(url, stream=True).raw)
+depth = pipe(image)["depth"]
+
+figure = plt.figure(figsize=(10,3))
+figure.suptitle('Depth map and the corresponding image')
+ax1 = figure.add_subplot(121)
+ax2 = figure.add_subplot(122)
+ax1.imshow(depth, cmap="magma")
+ax2.imshow(image)
