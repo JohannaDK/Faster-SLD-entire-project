@@ -16,13 +16,15 @@ if __name__ == '__main__':
     version_no = 10
     
     # Specify the scene name
-    scene_name = 'scene1'
+    scene_name = 'scene3'
 
     # Specify the landmark file
-    landmark_config = 'landmarks/landmarks-200v9'
+    landmark_config = 'landmarks/landmarks-100v9'
 
     # Specify the visibility file
-    visibility_config = 'landmarks/visibility-200v9_depth_normal'
+    visibility_config = 'landmarks/visibility-100v9_depth_normal'
+
+    pretrained_path = "/cluster/courses/3dv/data/team-25/Faster-SLD/data/checkpoints/model_5scenes-latest.ckpt"
 
     # Specify the batch size for the minibatches used for training.
     training_batch_size = 16
@@ -31,18 +33,18 @@ if __name__ == '__main__':
     output_downsample = 8
     
     # Specify the number of epochs to use during training.
-    num_epochs = 50
+    num_epochs = 300
 
     # Specify the number of landmarks and the block size. The number of landmarks should be 
     # identical to the number of landmarks in the landmark file specified for the 
     # landmark_config parameter.
-    num_landmarks = 200
+    num_landmarks = 100
 
     # Specify the number of landmarks that will be present in each subset when the set of 
     # landmarks is partitioned into mutually exclusive subsets. The value specified here 
     # should exactly divide the landmark count. For example, when num_landmarks = 1000 and 
     # block_size = 125, we get 1000/125 = 8 subsets of landmarks.
-    block_size = 200
+    block_size = 100
 
     # Specify which subset you want to train the model for. For example, when 
     # num_landmarks = 1000 and block_size = 125, then subset_index = 0 indicates that the 
@@ -81,6 +83,7 @@ if __name__ == '__main__':
         cmd += ' --training_batch_size %d' % training_batch_size
         cmd += ' --output_downsample %d' % output_downsample 
         cmd += ' --num_epochs %d' % num_epochs
+        cmd += ' --pretrained_path %s' % pretrained_path
 
         # Launch training
         os.system(cmd)

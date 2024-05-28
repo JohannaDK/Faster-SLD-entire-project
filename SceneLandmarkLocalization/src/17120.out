@@ -1,0 +1,35 @@
+Running on host: studgpu-node17.inf.ethz.ch
+In directory: /cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src
+Starting on: Wed May 22 10:54:28 CEST 2024
+SLURM_JOB_ID: 17120
+Using cache found in /home/owendu/.cache/torch/hub/rwightman_gen-efficientnet-pytorch_master
+CUDA enabled
+Start training ...
+  0%|          | 0/1260 [00:00<?, ?it/s]/home/owendu/.local/lib/python3.10/site-packages/torch/functional.py:507: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape.cpp:3549.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+/home/owendu/.local/lib/python3.10/site-packages/torch/functional.py:507: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape.cpp:3549.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+/home/owendu/.local/lib/python3.10/site-packages/torch/functional.py:507: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape.cpp:3549.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+/home/owendu/.local/lib/python3.10/site-packages/torch/functional.py:507: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape.cpp:3549.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+/home/owendu/.local/lib/python3.10/site-packages/torch/functional.py:507: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape.cpp:3549.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+  0%|          | 1/1260 [00:14<5:05:57, 14.58s/it]  0%|          | 2/1260 [00:15<2:16:19,  6.50s/it]  0%|          | 3/1260 [00:16<1:20:23,  3.84s/it]  0%|          | 3/1260 [00:20<2:22:51,  6.82s/it]
+Traceback (most recent call last):
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src/main.py", line 91, in <module>
+    train_patches(opt)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src/train_backbone.py", line 193, in train_patches
+    pred = model(patches_rand,cur_scene)
+  File "/home/owendu/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/owendu/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/cluster/courses/3dv/data/team-25/Faster-SLD/SceneLandmarkLocalization/src/models/backbone_model.py", line 195, in forward
+    head_output = self.heads[scene](bb_output)
+  File "/home/owendu/.local/lib/python3.10/site-packages/torch/nn/modules/container.py", line 461, in __getitem__
+    return self._modules[key]
+KeyError: 'scene1'
+Experiment File: 5scenes_effnet_100-100_v1.txt
+Model Dir: /cluster/courses/3dv/data/team-25/Faster-SLD/data/outputs/5scenes_effnet_100-100_v1/5scenes_effnet-000-100
+finished at: Wed May 22 10:54:53 CEST 2024

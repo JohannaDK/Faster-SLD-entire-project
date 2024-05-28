@@ -120,9 +120,15 @@ def inference(opt, minimal_tight_thr=1e-2, opt_tight_thr=5e-3, mode='test'):
     num_landmarks = opt.landmark_indices[-1] - opt.landmark_indices[0]
 
     for idx, pretrained_model in enumerate(PRETRAINED_MODEL):
+        
+        path = opt.pretrained_path
+        feats = 512
+        pretrained = MultiHeadModel(bb_model="bbresnetv2", head_version="v3", scenes=["lorem"], path=path, features=feats, num_landmarks=num_landmarks)
+        bb = pretrained.bb.to(device=device)
+        head = SceneHeadV4(features=feats, num_landmarks=num_landmarks).to(device=device)
+        head.load_state_dict(torch.load(pretrained_model))
 
-        cnn = FrozenBackBoneModel()
-        cnn.load_state_dict(torch.load(pretrained_model))
+        cnn = nn.Sequential(bb,head)
         
         cnn = cnn.to(device=device)
         cnn.eval()
@@ -169,7 +175,7 @@ def inference(opt, minimal_tight_thr=1e-2, opt_tight_thr=5e-3, mode='test'):
                 pred_heatmap = []
                 for cnn in cnns:
                     pred = cnn(image)
-                    pred_heatmap.append(pred['1'])
+                    pred_heatmap.append(pred)
 
                 pred_heatmap = torch.cat(pred_heatmap, axis=1)
                 pred_heatmap *= (pred_heatmap > peak_threshold).float()
@@ -327,7 +333,7 @@ def inference_landmark_stats(opt, mode='test'):
             pred_heatmap = []
             for cnn in cnns:
                 pred = cnn(image)
-                pred_heatmap.append(pred['1'])
+                pred_heatmap.append(pred)
 
             pred_heatmap = torch.cat(pred_heatmap, axis=1)
             pred_heatmap *= (pred_heatmap > peak_threshold).float()

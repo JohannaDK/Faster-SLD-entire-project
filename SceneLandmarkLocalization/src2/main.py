@@ -67,6 +67,10 @@ if __name__ == '__main__':
     parser.add_argument(
         '--training_batch_size', type=int, default=8,
         help='Batch size used during training.')
+    parser.add_argument(
+        '--pretrained_path', type=str,
+        help='path to pretrained model/bb'
+    )
 
     opt = parser.parse_args()
 

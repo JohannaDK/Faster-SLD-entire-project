@@ -1,10 +1,11 @@
 #!/bin/bash
 
-#SBATCH --time=24:00
+#SBATCH --time=24:00:00
 #SBATCH --account=3dv
 #SBATCH --output=%j.out
-#SBATCH --cpus-per-task=2
-#SBATCH --gres=gpu:nvidia_geforce_gtx_1080ti:1
+#SBATCH --mincpus=2
+#SBATCH --gpus=4
+#SBATCH --mem-per-cpu=30000MB
 
 . /etc/profile.d/modules.sh
 module add cuda/11.8

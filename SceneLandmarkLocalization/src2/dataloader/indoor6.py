@@ -5,6 +5,7 @@ import numpy as np
 import os
 import pickle
 from PIL import Image
+import logging
 
 import sys
 sys.path.append('../utils')
@@ -437,3 +438,22 @@ class Indoor6Patches(Indoor6):
                   }
 
         return output
+
+class FeatureDataset(Dataset):
+
+    def __init__(self, features, heatmaps, visibility):
+        self.features = features
+        self.heatmaps = heatmaps
+        self.visibility = visibility
+
+    def __len__(self):
+        return len(self.features)
+
+    def __getitem__(self, index):
+        sample = {'features': self.features[index], 'heatmap':self.heatmaps[index], 'vis': self.visibility[index]}
+        return sample
+
+    def makeTensors(self):
+        self.features = torch.tensor(self.features, dtype=torch.float32)
+        self.heatmaps = torch.tensor(self.heatmaps, dtype=torch.float32)
+        self.visibility = torch.tensor(self.visibility, dtype=torch.float32)
